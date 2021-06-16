@@ -1,16 +1,33 @@
-# adopt_ta_waifu
+# ADOPT TA WAIFU ANDROID APP
 
-adopt_ta_waifu for android made with flutter
+Show image waifu or husbando and if you like this image you can share it with your friend
 
-## Getting Started
+## Framework
 
-This project is a starting point for a Flutter application.
+- [Android](https://developer.android.com/)
+- [Flutter](https://flutter.dev/)
 
-A few resources to get you started if this is your first Flutter project:
+## API
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Adopt ta Waifu back](https://github.com/Maxvyr/adopt_ta_waifu_back/edit/main/README.md)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Before
+
+- install Android Studio with the link Android
+- run the app on you computer or an Android Device
+
+## Pull Request
+
+- If you want to help for add new API or other, you are welcome ;)
+
+## Tips
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A72UVP8)
+
+## Crypto Tips(ETH)
+
+![https://i.imgur.com/XpF2vgw.png](https://i.imgur.com/XpF2vgw.png)
+
+## Contact Me
+
+contact : [pandamydev@gmail.com](mailto:pandamydev@gmail.com)
