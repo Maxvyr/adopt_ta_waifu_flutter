@@ -1,9 +1,4 @@
-const String strAppName = "Vizeo DDNS";
-const String strVizeo = "Vizeo";
-const String strConnexion = "Connexion";
-const String strConnexionEnCours = "Connexion...";
-const String strDeconnexion = "Déconnexion";
-const String strDeconnexionEnCours = "Déconnexion...";
+const String strAppName = "Adopt Ta Waifu";
 const String strInscription = "Créer un compte";
 const String strInscriptionWeb = "Inscription";
 const String strCreateYourAccount = "Créer le compte";
@@ -20,7 +15,8 @@ const String strNext = "Suivant";
 const String strNomDomaine = "Nom de domaine";
 const String strReference = "Référence";
 const String strReferenceProduct = "Référence produit";
-const String strForgotReferenceProduct = "Veuillez ajouter une référence produit a votre DDNS";
+const String strForgotReferenceProduct =
+    "Veuillez ajouter une référence produit a votre DDNS";
 const String strReferenceProductExample = "HD50412345531335";
 const String strNumSerie = "Numéro de série";
 const String strProduct = "Produit";
@@ -53,7 +49,8 @@ const String strPwdContain = "Le mot de passe doit contenir";
 const String strMDPEightCaractere = "• Au moins 8 caractères";
 const String strMDPUppercase = "• Au moins une majuscule";
 const String strMDPLowercase = "• Au moins une minuscule";
-const String strMDPSpecialCharacterOrNumber = "• Au moins un caractère spécial ou chiffre";
+const String strMDPSpecialCharacterOrNumber =
+    "• Au moins un caractère spécial ou chiffre";
 const String strEmail = "Email";
 const String strEmailHint = "votremail@mail.fr";
 const String strDomain = "Domaine";
@@ -74,8 +71,10 @@ const String strTuto = "Tutoriel";
 const String strEdit = "Editer";
 const String strPasser = "Passer";
 const String strEmailOrIdentifiant = "Identifiants ou email";
-const String strEmailOrIdentifiantUnavailable = "Identifiants ou email invalide";
-const String strEmailSendForRecoverPwd = "Un email vous sera envoyé avec un lien pour réinitialiser votre mot de passe";
+const String strEmailOrIdentifiantUnavailable =
+    "Identifiants ou email invalide";
+const String strEmailSendForRecoverPwd =
+    "Un email vous sera envoyé avec un lien pour réinitialiser votre mot de passe";
 const String strOK = "OK";
 const String strChampObligatoire = "Champs obligatoire";
 const String strDevByVizeo = "Développé par Vizeo®";
@@ -106,7 +105,8 @@ const String strModif = "Modifier";
 const String strNonRenseigne = "Non renseigné";
 const String strALinstant = "à l'instant";
 const String strAdresseIP = "Adresse IP";
-const String strDDNSUnavailable = "DDNS déja utilisé, veuillez en choisir un autre";
+const String strDDNSUnavailable =
+    "DDNS déja utilisé, veuillez en choisir un autre";
 const String strNon = "Non";
 const String strOui = "Oui";
 const String strDelete = "Supprimer";
@@ -123,7 +123,8 @@ const String strDescription = "Description";
 const String strDescriptionExample = "DDNS pour ....";
 const String strValidateDDNSCreation = "Votre DDNS à bien été créé";
 const String strNewDDNSTitle = "Nouveau DDNS";
-const String strNewDDNSDesc = "Créez votre DDNS personnalisé et profitez en gratuitement !";
+const String strNewDDNSDesc =
+    "Créez votre DDNS personnalisé et profitez en gratuitement !";
 const String strPasEncoreDdns = "Pas encore de DDNS...";
 const String strPasDeResultat = "Pas de résultat.";
 const String strScanProduct = "Scanner le produit";
@@ -149,20 +150,23 @@ Si vous n’avez pas accès au mail de votre compte, merci de contacter Vizeo.""
 const String strTitleConfigStocker = "Configuration de l’enregistreur";
 const String strDescConfigStocker =
     "Pour un réseau comprenant plusieurs enregistreurs, il suffit d’en configurer qu’un seul. Cependant, il faudra ouvrir plus de ports dans la box et les configurer dans les enregistreurs.";
-const String strInterfaceUse = "Quelle interface sera utilisée pour la configuration de votre enregistreur ?";
+const String strInterfaceUse =
+    "Quelle interface sera utilisée pour la configuration de votre enregistreur ?";
 const String strInterfaceLocal = "Ecran branché à l’enregistreur";
 const String strInterfaceWebTitle = "Interface web";
 const String strInterfaceWebDesc = "(via IP de l’enregistreur)";
 const String strCreateYoutFirstDDNS = "Creez votre premier DDNS !";
 const String strDescDDNSConnexionPageWeb =
     "Redirigez gratuitement vos adresses IP sur un nom de domaine afin de simplifer l’accès à distance de vos caméras !";
-const String strDescAppConnexionPageWeb = "Retrouvez Vizeo DDNS sur smartphone et tablette !";
+const String strDescAppConnexionPageWeb =
+    "Retrouvez Vizeo DDNS sur smartphone et tablette !";
 const String strLinkLegalNotice = "https://www.vizeo.fr/Mentions-Legales.html";
 const String strLinkVizeoMainSite = "https://www.vizeo.fr";
 const String strOurSite = "Notre site";
 const String strLegalNotice = "Mention légales";
 const String strSuffixVizeo = ".vizeo.fr";
-const String strWrongSerialNumber = "Mauvais numéro de série scannez, veuillez ré-essayer";
+const String strWrongSerialNumber =
+    "Mauvais numéro de série scannez, veuillez ré-essayer";
 const String strConfirmDeleteDDNS = "Etes vous sur de vouloir le supprimer ?";
 
 const String msgVerifierEmail = "Merci de vérifier vos emails";
@@ -171,16 +175,20 @@ const String msgConfirmDeco = "Voulez-vous vraiment vous déconnecter ?";
 const String msgRemplirIdentifiant = "Merci de saisir votre identifiant";
 const String msgRemplirMdp = "Merci de saisir votre mot de passe";
 const String msgRemplirChamps = "Merci de remplir tous les champs obligatoire ";
-const String msgTutoriel1 = "Consulter les vidéos\nsur mobile sans\nadresse IP fixe";
-const String msgTutoriel2 = "Service offert,\nsans abonnement,\net sans publicité";
+const String msgTutoriel1 =
+    "Consulter les vidéos\nsur mobile sans\nadresse IP fixe";
+const String msgTutoriel2 =
+    "Service offert,\nsans abonnement,\net sans publicité";
 const String msgScannerNumSerie0 = "ou scannez\n";
 const String msgScannerNumSerie1 = "le numéro de série ";
 const String msgVerifEnCours = "Vérification en cours...";
-const String msgErreurCaracteresNonAutorises = "Seul les caractères alphanumériques et les tirets sont autorisés";
+const String msgErreurCaracteresNonAutorises =
+    "Seul les caractères alphanumériques et les tirets sont autorisés";
 const String msgErreurPort = "Doit être compris entre 1 et 655535";
 const String msgChargerIpAuto = "Charger les IP automatiquement";
 const String msgTpsChargementPlusLong = "Le temps de chargement sera plus long";
-const String msgDomainePlusAccessible = "Le nom de domaine '%s.vizeo.fr' ne sera plus accessible.";
+const String msgDomainePlusAccessible =
+    "Le nom de domaine '%s.vizeo.fr' ne sera plus accessible.";
 
 const String msgErreurConnexion = "Erreur de connexion";
 const String msgErreurEmail = "Adresse email invalide";
