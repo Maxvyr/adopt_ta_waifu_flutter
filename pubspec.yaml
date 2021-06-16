@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons:
   flutter_svg:
   url_launcher:
+  bloc:
+  flutter_bloc:
 
 dev_dependencies:
   flutter_test:
