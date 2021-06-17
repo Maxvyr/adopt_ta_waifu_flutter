@@ -1,3 +1,5 @@
+import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/Images.dart';
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
@@ -8,39 +10,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    var heightTotal = MediaQuery.of(context).size.height;
+    var widthTotal = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      appBar: AppBar(
-        title: MyText(data: strAppName),
+      body: Column(
+        children: [
+          _topPage(heightTotal, widthTotal),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+    );
+  }
+
+  Widget _topPage(double heightTotal, double widthTotal) {
+    double radiusImg = widthTotal * 0.1;
+    final Brightness brightnessValue =
+        MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightnessValue == Brightness.dark;
+
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Column(
+          children: [
+            Image.asset(
+              zeroTwoTop,
+              height: heightTotal * 0.5,
+              fit: BoxFit.cover,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            SizedBox(
+              height: radiusImg,
+            )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+        ClipOval(
+          child: Container(
+            color: isDarkMode ? dark : white,
+            padding: EdgeInsets.all(5.0),
+            child: CircleAvatar(
+              backgroundImage: AssetImage(logoApp),
+              radius: radiusImg,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
