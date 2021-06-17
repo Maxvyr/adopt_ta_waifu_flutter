@@ -1,14 +1,6 @@
 const String strAppName = "Adopt Ta Waifu";
-const String strInscription = "Créer un compte";
-const String strInscriptionWeb = "Inscription";
-const String strCreateYourAccount = "Créer le compte";
-const String strCreationCompte = "Création de compte";
-const String strSupprCompte = "Supprimer compte";
-const String strDdns = "DDNS";
-const String strYourDdns = "Vos DDNS";
-const String strCreateDdns = "Créer un DDNS";
-const String strCreateProject = "Créer le projet";
-const String strCreate = "Créer ";
+const String strWaifu = "Waifu";
+const String strHusbando = "Husbando";
 const String strCompte = "Compte";
 const String strApropos = "A propos";
 const String strNext = "Suivant";

@@ -64,16 +64,16 @@ class ButtonSocialNetwork extends Padding {
 }
 
 class MyButtonElevated extends SizedBox {
-  MyButtonElevated(
-      {double heightBt: 46,
-      double widthBt: 216,
-      required String txtBt,
-      required VoidCallback callback,
-      Color txtColor: white,
-      Color backgroundColor: red,
-      FontWeight fontWeight: FontWeight.w700,
-      bool addIcon: false})
-      : super(
+  MyButtonElevated({
+    double heightBt: 46,
+    double widthBt: 150,
+    required String txtBt,
+    required VoidCallback callback,
+    Color txtColor: white,
+    Color backgroundColor: blueMain,
+    FontWeight fontWeight: FontWeight.w700,
+    bool addIcon: false,
+  }) : super(
           height: heightBt,
           width: widthBt,
           child: ElevatedButton(
@@ -98,71 +98,6 @@ class MyButtonElevated extends SizedBox {
                 ),
                 addIcon ? Icon(arrowNextIcon) : SizedBox()
               ],
-            ),
-          ),
-        );
-}
-
-class MyButtonAnnuler extends SizedBox {
-  MyButtonAnnuler({
-    double heightBt: 46,
-    // double widthBt: 216,
-    required String txtBt,
-    required VoidCallback callback,
-    Color color: web_text,
-    FontWeight fontWeight: FontWeight.w700,
-  }) : super(
-          height: heightBt,
-          //  width: widthBt,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              // onPrimary: Colors.white,
-
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(22),
-                ),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 46),
-            ),
-            onPressed: callback,
-            child: MyText(
-              data: txtBt,
-              fontWeight: fontWeight,
-              color: color,
-            ),
-          ),
-        );
-}
-
-class MyButtonGuide extends SizedBox {
-  MyButtonGuide({
-    double heightBt: 28,
-    // double widthBt: 216,
-    required String txtBt,
-    required VoidCallback callback,
-    Color color: web_text,
-    FontWeight fontWeight: FontWeight.w700,
-  }) : super(
-          height: heightBt,
-          //  width: widthBt,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              onPrimary: Colors.white,
-              primary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(14),
-                ),
-                side: BorderSide(color: web_text),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 20),
-            ),
-            onPressed: callback,
-            child: MyText(
-              data: txtBt,
-              fontWeight: fontWeight,
-              color: color,
             ),
           ),
         );

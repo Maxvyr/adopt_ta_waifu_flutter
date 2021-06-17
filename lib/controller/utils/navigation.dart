@@ -12,33 +12,29 @@ void goToNextPage(BuildContext context, Widget nextPage) {
       ));
 }
 
-void animationPageFromRight(BuildContext context, Widget nextPage,
-    {int animationDuration: 200}) {
+void animationPage(
+  BuildContext context,
+  Widget nextPage, {
+  int animationDuration: 500,
+}) {
   Navigator.push(
     context,
-    animationOrientation(true, nextPage, animationDuration),
+    animationOrientation(nextPage, animationDuration),
   );
 }
 
-void animationPageFromBottom(BuildContext context, Widget nextPage,
-    {int animationDuration: 200}) {
-  Navigator.push(
-    context,
-    animationOrientation(false, nextPage, animationDuration),
-  );
-}
-
-Route animationOrientation(bool fromRight, Widget child, animationDuration) {
+Route animationOrientation(Widget child, animationDuration) {
   return PageRouteBuilder(
     transitionDuration: Duration(milliseconds: animationDuration),
     transitionsBuilder: (context, animation, animationTime, child) {
-      var begin = fromRight ? Offset(1.0, 0.0) : Offset(0.0, 1.0);
-      var end = Offset.zero;
-      var tween = Tween(begin: begin, end: end);
-      var offsetAnimation = animation.drive(tween);
+      animation = CurvedAnimation(
+        parent: animation,
+        curve: Curves.decelerate,
+      );
 
-      return SlideTransition(
-        position: offsetAnimation,
+      return ScaleTransition(
+        alignment: Alignment.center,
+        scale: animation,
         child: child,
       );
     },
