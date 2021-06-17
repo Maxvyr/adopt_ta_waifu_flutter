@@ -68,10 +68,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
         ),
         iconButtonCustom(
           isLike: false,
-          callback: () {
-            ++index;
-            setState(() {});
-          },
+          callback: () => _nextPage(),
         ),
       ],
     );
@@ -85,5 +82,15 @@ class _ShowCardPageState extends State<ShowCardPage> {
       iconSize: 44.0,
       color: blueMain,
     );
+  }
+
+  void _nextPage() {
+    if (index < (widget.waifus.length - 1)) {
+      ++index;
+      setState(() {});
+    } else {
+      // TODO if all img show!
+      index = 0;
+    }
   }
 }
