@@ -47,10 +47,11 @@ class _ShowCardPageState extends State<ShowCardPage> {
   }
 
   Widget imgCard(double heightTotal, double widthTotal) {
+    String imgLink = widget.waifus[index].sample;
     return ClipRRect(
       borderRadius: BorderRadius.circular(25.0),
       child: Image.network(
-        widget.waifus[index].previewImg,
+        imgLink,
         fit: BoxFit.fill,
         width: widthTotal * 0.8,
         height: heightTotal * 0.5,
@@ -86,7 +87,8 @@ class _ShowCardPageState extends State<ShowCardPage> {
   }
 
   void _shareImg() {
-    shareImg();
+    Waifu waifuLiked = widget.waifus[index];
+    shareImg(waifuLiked);
   }
 
   void _nextPage() {
