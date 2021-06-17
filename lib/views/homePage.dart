@@ -1,4 +1,7 @@
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
+import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
+import 'package:adopt_ta_waifu/views/WaifuPage.dart';
 
 import '../../controller/constant/Colors.dart';
 import '../../controller/constant/Images.dart';
@@ -17,14 +20,21 @@ class _MyHomePageState extends State<MyHomePage> {
     var widthTotal = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          _topPage(heightTotal, widthTotal),
-          spacingH(height: heightTotal * 0.1),
-          _buttonsNext(),
-        ],
+      body: _body(
+        heightTotal,
+        widthTotal,
       ),
+    );
+  }
+
+  Widget _body(double heightTotal, double widthTotal) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        _topPage(heightTotal, widthTotal),
+        spacingH(height: heightTotal * 0.1),
+        _buttonsNext(),
+      ],
     );
   }
 
@@ -70,11 +80,17 @@ class _MyHomePageState extends State<MyHomePage> {
       children: [
         MyButtonElevated(
           txtBt: strWaifu,
-          callback: () => print("Waifu Page"),
+          callback: () => animationPage(
+            context,
+            WaifuPage(DummyWaifuList().getWaifus()),
+          ),
         ),
         MyButtonElevated(
           txtBt: strHusbando,
-          callback: () => print("Husbando Page"),
+          callback: () => animationPage(
+            context,
+            WaifuPage(DummyWaifuList().getWaifus()),
+          ),
         ),
       ],
     );
