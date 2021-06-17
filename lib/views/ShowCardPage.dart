@@ -1,5 +1,6 @@
 import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
+import 'package:adopt_ta_waifu/controller/utils/ShareImg.dart';
 import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
       children: [
         iconButtonCustom(
           isLike: true,
-          callback: () {},
+          callback: () => _shareImg(),
         ),
         iconButtonCustom(
           isLike: false,
@@ -82,6 +83,10 @@ class _ShowCardPageState extends State<ShowCardPage> {
       iconSize: 44.0,
       color: blueMain,
     );
+  }
+
+  void _shareImg() {
+    shareImg();
   }
 
   void _nextPage() {
