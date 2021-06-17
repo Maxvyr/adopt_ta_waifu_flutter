@@ -1,7 +1,7 @@
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
-import 'package:adopt_ta_waifu/views/WaifuPage.dart';
+import 'package:adopt_ta_waifu/views/ShowCardPage.dart';
 
 import '../../controller/constant/Colors.dart';
 import '../../controller/constant/Images.dart';
