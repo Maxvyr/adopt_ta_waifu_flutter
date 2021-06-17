@@ -82,14 +82,20 @@ class _MyHomePageState extends State<MyHomePage> {
           txtBt: strWaifu,
           callback: () => animationPage(
             context,
-            WaifuPage(DummyWaifuList().getWaifus()),
+            ShowCardPage(
+              strWaifu,
+              DummyWaifuList().getWaifus(),
+            ),
           ),
         ),
         MyButtonElevated(
           txtBt: strHusbando,
           callback: () => animationPage(
             context,
-            WaifuPage(DummyWaifuList().getWaifus()),
+            ShowCardPage(
+              strHusbando,
+              DummyWaifuList().getWaifus(),
+            ),
           ),
         ),
       ],
