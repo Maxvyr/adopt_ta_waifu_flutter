@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons:
   flutter_svg:
   url_launcher:
+  share_plus:
+  http:
+  path_provider:
   bloc:
   flutter_bloc:
 

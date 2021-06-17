@@ -1,5 +1,6 @@
 import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
+import 'package:adopt_ta_waifu/controller/utils/ShareImg.dart';
 import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,11 @@ class _ShowCardPageState extends State<ShowCardPage> {
   }
 
   Widget imgCard(double heightTotal, double widthTotal) {
+    String imgLink = widget.waifus[index].sample;
     return ClipRRect(
       borderRadius: BorderRadius.circular(25.0),
       child: Image.network(
-        widget.waifus[index].previewImg,
+        imgLink,
         fit: BoxFit.fill,
         width: widthTotal * 0.8,
         height: heightTotal * 0.5,
@@ -64,14 +66,11 @@ class _ShowCardPageState extends State<ShowCardPage> {
       children: [
         iconButtonCustom(
           isLike: true,
-          callback: () {},
+          callback: () => _shareImg(),
         ),
         iconButtonCustom(
           isLike: false,
-          callback: () {
-            ++index;
-            setState(() {});
-          },
+          callback: () => _nextPage(),
         ),
       ],
     );
@@ -85,5 +84,20 @@ class _ShowCardPageState extends State<ShowCardPage> {
       iconSize: 44.0,
       color: blueMain,
     );
+  }
+
+  void _shareImg() {
+    Waifu waifuLiked = widget.waifus[index];
+    shareImg(waifuLiked);
+  }
+
+  void _nextPage() {
+    if (index < (widget.waifus.length - 1)) {
+      ++index;
+      setState(() {});
+    } else {
+      // TODO if all img show!
+      index = 0;
+    }
   }
 }

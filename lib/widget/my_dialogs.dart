@@ -147,7 +147,7 @@ Future<void> alertChangeUserData(
         actions: [
           _btn(
             context: ctx,
-            txt: strValider,
+            txt: strValidate,
             callback: voidCallback,
           ),
         ],
@@ -179,46 +179,6 @@ Widget _close({
       data: txt,
     ),
   );
-}
-
-Future<void> loadingDialog(
-  BuildContext context, {
-  String text = strChargement,
-  bool dismissible = false,
-}) async {
-  return showDialog(
-      context: context,
-      barrierDismissible: dismissible,
-      builder: (ctx) {
-        Column column = Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: (Theme.of(context).platform == TargetPlatform.iOS)
-                  ? CupertinoActivityIndicator(
-                      radius: 15,
-                    )
-                  : CircularProgressIndicator(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 30,
-                bottom: 30,
-              ),
-              child: MyText(
-                data: text,
-                color: colorTexteFonce,
-                fontSize: 24,
-              ),
-            )
-          ],
-        );
-
-        return CupertinoAlertDialog(
-          content: column,
-        );
-      });
 }
 
 Future confirmDialog(
