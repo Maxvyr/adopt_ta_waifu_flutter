@@ -1,7 +1,8 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
-import 'package:adopt_ta_waifu/controller/constant/Images.dart';
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
-import 'package:adopt_ta_waifu/widget/my_materials.dart';
+
+import '../../controller/constant/Colors.dart';
+import '../../controller/constant/Images.dart';
+import '../../widget/my_materials.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,8 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           _topPage(heightTotal, widthTotal),
+          spacingH(height: heightTotal * 0.1),
+          _buttonsNext(),
         ],
       ),
     );
@@ -54,6 +58,23 @@ class _MyHomePageState extends State<MyHomePage> {
               radius: radiusImg,
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buttonsNext() {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        MyButtonElevated(
+          txtBt: strWaifu,
+          callback: () => print("Waifu Page"),
+        ),
+        MyButtonElevated(
+          txtBt: strHusbando,
+          callback: () => print("Husbando Page"),
         ),
       ],
     );

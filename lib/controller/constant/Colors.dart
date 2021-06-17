@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color lightRed = Color(0xffd64d31);
 const Color blue = Colors.blue;
-const Color blueMain = Color(0XFF1B5EDF);
+const Color blueMain = Color(0XFF013E73);
 const Color green = Colors.green;
 const Color lime = Colors.lime;
 const Color grey = Colors.black26;
@@ -57,7 +57,8 @@ const MaterialColor themeColor = MaterialColor(
     100: Color(0xFFFCD3D6),
     200: Color(0xFFFAB5BA),
     300: Color(0xFFF8979E),
-    350: Color(0xFFF7818A), // only for raised button while pressed in light theme
+    350: Color(
+        0xFFF7818A), // only for raised button while pressed in light theme
     400: Color(0xFFF7818A),
     500: Color(0xffF56B75),
     600: Color(0xFFF4636D),
@@ -115,9 +116,3 @@ const Color tileColor = Color(0xFF17204A);
 const Color white = Colors.white;
 const Color whiteBackground = Color(0xFFFAFBFC);
 const Color blueLightTerciaire = Color(0xFF7982B1);
-
-// AJOUT Web
-const Color web_text = Color(0xFF0B1647);
-const Color web_fondCard = Color(0xFF12193A);
-const Color web_grisFond = Color(0xFFE5E5E5);
-const Color web_rouge = Color(0xFFF24C52);
