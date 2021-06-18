@@ -8,6 +8,7 @@ const String strOK = "ok";
 const String strDwldOn = "Télécharger sur";
 const String strGooglePlay = "Google Play";
 const String strAppStore = "App Store";
+const String strLoading = "Chargement du fichier....";
 const String strSend = "Envoyer";
 const String strApercu = "Apercu";
 const String strMasquer = "Masquer";

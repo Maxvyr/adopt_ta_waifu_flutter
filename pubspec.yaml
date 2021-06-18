@@ -35,6 +35,7 @@ dependencies:
   path_provider:
   bloc:
   flutter_bloc:
+  flutter_easyloading:
 
 dev_dependencies:
   flutter_test:

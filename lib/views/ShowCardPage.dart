@@ -1,9 +1,12 @@
 import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
-import 'package:adopt_ta_waifu/controller/utils/ShareImg.dart';
+import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
+import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
 import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ShowCardPage extends StatefulWidget {
   final String title;
@@ -17,6 +20,12 @@ class ShowCardPage extends StatefulWidget {
 class _ShowCardPageState extends State<ShowCardPage> {
   //variable
   int index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    configLoadingWhenShare();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +95,13 @@ class _ShowCardPageState extends State<ShowCardPage> {
     );
   }
 
-  void _shareImg() {
+  void _shareImg() async {
     Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
+    await EasyLoading.show(
+      status: strLoading,
+      maskType: EasyLoadingMaskType.black,
+    );
   }
 
   void _nextPage() {
@@ -99,5 +112,22 @@ class _ShowCardPageState extends State<ShowCardPage> {
       // TODO if all img show!
       index = 0;
     }
+  }
+
+  void configLoadingWhenShare() {
+    EasyLoading.instance
+      ..displayDuration = const Duration(milliseconds: 2000)
+      ..indicatorType = EasyLoadingIndicatorType.fadingGrid
+      ..loadingStyle = EasyLoadingStyle.dark
+      ..indicatorSize = 45.0
+      ..radius = 10.0
+      ..progressColor = white
+      ..backgroundColor = green
+      ..indicatorColor = lime
+      ..textColor = yellow
+      ..maskColor = blueMain.withOpacity(0.5)
+      ..userInteractions = true
+      ..dismissOnTap = true
+      ..customAnimation = CustomAnimation();
   }
 }
