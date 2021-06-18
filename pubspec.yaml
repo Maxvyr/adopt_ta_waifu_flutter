@@ -35,6 +35,7 @@ dependencies:
   path_provider:
   flutter_easyloading:
   cached_network_image:
+  flutter_native_splash:
 
 
 dev_dependencies:
