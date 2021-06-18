@@ -16,7 +16,7 @@ class ComingSoon extends StatelessWidget {
         child: MyText(
           data: strComingSoon,
           color: black,
-          fontSize: 45.0,
+          fontSize: 35.0,
         ),
       ),
     );

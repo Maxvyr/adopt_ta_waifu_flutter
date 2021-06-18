@@ -1,11 +1,10 @@
 import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
-
 class MyText extends Text {
   MyText({
     required String data,
-    double fontSize: 18.0,
+    double fontSize: 16.0,
     Color color: white,
     FontWeight fontWeight: FontWeight.normal,
     FontStyle fontStyle: FontStyle.normal,
@@ -27,7 +26,7 @@ class MyText extends Text {
             fontSize: fontSize,
             fontStyle: fontStyle,
             height: height,
-            fontFamily: "DIN2014",
+            fontFamily: "AnimeAce",
             shadows: [
               Shadow(
                 color: colorShadow,
