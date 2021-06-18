@@ -33,9 +33,9 @@ dependencies:
   share_plus:
   http:
   path_provider:
-  bloc:
-  flutter_bloc:
   flutter_easyloading:
+  cached_network_image:
+
 
 dev_dependencies:
   flutter_test:

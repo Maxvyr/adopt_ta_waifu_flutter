@@ -4,6 +4,7 @@ import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -59,11 +60,10 @@ class _ShowCardPageState extends State<ShowCardPage> {
     String imgLink = widget.waifus[index].sample;
     return ClipRRect(
       borderRadius: BorderRadius.circular(25.0),
-      child: Image.network(
+      child: myCacheImageNetwork(
         imgLink,
-        fit: BoxFit.fill,
-        width: widthTotal * 0.8,
-        height: heightTotal * 0.5,
+        widthTotal,
+        heightTotal,
       ),
     );
   }
