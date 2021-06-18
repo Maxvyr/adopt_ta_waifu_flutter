@@ -1,8 +1,7 @@
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-import 'views/HomePage.dart';
 
 void main() {
   runApp(MyApp());

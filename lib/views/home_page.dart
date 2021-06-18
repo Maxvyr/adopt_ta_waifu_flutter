@@ -2,8 +2,8 @@ import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/repository/CallApi.dart';
-import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
 import 'package:adopt_ta_waifu/views/ShowCardPage.dart';
+import 'package:adopt_ta_waifu/views/coming_soon.dart';
 
 import '../../controller/constant/Colors.dart';
 import '../../controller/constant/Images.dart';
@@ -131,10 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           txtBt: strHusbando,
           callback: () => animationPage(
             context,
-            ShowCardPage(
-              strHusbando,
-              waifus,
-            ),
+            ComingSoon(strHusbando),
           ),
         ),
       ],
