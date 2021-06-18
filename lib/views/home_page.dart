@@ -1,12 +1,12 @@
-import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
-import 'package:adopt_ta_waifu/models/Waifu.dart';
-import 'package:adopt_ta_waifu/repository/CallApi.dart';
-import 'package:adopt_ta_waifu/views/ShowCardPage.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/repository/call_api.dart';
+import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
 
-import '../../controller/constant/Colors.dart';
-import '../../controller/constant/Images.dart';
+import '../controller/constant/colors.dart';
+import '../controller/constant/images.dart';
 import '../../widget/my_materials.dart';
 import 'package:flutter/material.dart';
 

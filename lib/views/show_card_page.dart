@@ -1,9 +1,9 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
-import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
-import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/icons.dart';
+import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
-import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

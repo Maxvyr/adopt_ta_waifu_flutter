@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'my_materials.dart';
