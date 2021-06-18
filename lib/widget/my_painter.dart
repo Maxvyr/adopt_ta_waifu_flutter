@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
-import 'my_materials.dart';
-
 class MyPainter extends CustomPainter {
   late Paint painter;
   final PageController pageController;
@@ -22,7 +20,9 @@ class MyPainter extends CustomPainter {
     final dxCurrent = 25.0;
     final dxTarget = 125.0;
     final position = pageController.position;
-    final extent = (position.maxScrollExtent - position.minScrollExtent + position.viewportDimension);
+    final extent = (position.maxScrollExtent -
+        position.minScrollExtent +
+        position.viewportDimension);
     final offset = position.extentBefore / extent;
     bool toRight = dxCurrent < dxTarget;
     Offset entry = Offset(toRight ? dxCurrent : dxTarget, dy);

@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:adopt_ta_waifu/controller/utils/convert_url_to_file.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:flutter_test/flutter_test.dart';
