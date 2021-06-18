@@ -1,9 +1,13 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
-import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
-import 'package:adopt_ta_waifu/controller/utils/ShareImg.dart';
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/icons.dart';
+import 'package:adopt_ta_waifu/controller/constant/strings.dart';
+import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
+import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ShowCardPage extends StatefulWidget {
   final String title;
@@ -17,6 +21,12 @@ class ShowCardPage extends StatefulWidget {
 class _ShowCardPageState extends State<ShowCardPage> {
   //variable
   int index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    configLoadingWhenShare();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +58,19 @@ class _ShowCardPageState extends State<ShowCardPage> {
 
   Widget imgCard(double heightTotal, double widthTotal) {
     String imgLink = widget.waifus[index].sample;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(25.0),
-      child: Image.network(
-        imgLink,
-        fit: BoxFit.fill,
-        width: widthTotal * 0.8,
-        height: heightTotal * 0.5,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25.0),
+      ),
+      elevation: 15.0,
+      shadowColor: blueMain,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(25.0),
+        child: myCacheImageNetwork(
+          imgLink,
+          widthTotal,
+          heightTotal,
+        ),
       ),
     );
   }
@@ -86,9 +102,10 @@ class _ShowCardPageState extends State<ShowCardPage> {
     );
   }
 
-  void _shareImg() {
+  void _shareImg() async {
     Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
+    animationLoading();
   }
 
   void _nextPage() {
@@ -99,5 +116,29 @@ class _ShowCardPageState extends State<ShowCardPage> {
       // TODO if all img show!
       index = 0;
     }
+  }
+
+  void configLoadingWhenShare() {
+    EasyLoading.instance
+      ..displayDuration = const Duration(milliseconds: 2000)
+      ..indicatorType = EasyLoadingIndicatorType.fadingGrid
+      ..loadingStyle = EasyLoadingStyle.dark
+      ..indicatorSize = 45.0
+      ..radius = 10.0
+      ..progressColor = white
+      ..backgroundColor = green
+      ..indicatorColor = lime
+      ..textColor = yellow
+      ..maskColor = blueMain.withOpacity(0.5)
+      ..userInteractions = true
+      ..dismissOnTap = true
+      ..customAnimation = CustomAnimation();
+  }
+
+  void animationLoading() async {
+    EasyLoading.show(
+      status: strLoading,
+      maskType: EasyLoadingMaskType.black,
+    );
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
 
 class DummyWaifuList {
   List<Waifu> _dummyWaifus = [];

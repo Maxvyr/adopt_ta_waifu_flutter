@@ -5,6 +5,7 @@ const Color blue = Colors.blue;
 const Color blueMain = Color(0XFF013E73);
 const Color green = Colors.green;
 const Color lime = Colors.lime;
+const Color yellow = Colors.yellow;
 const Color grey = Colors.black26;
 const Color black = Colors.black;
 const Color transparent = Colors.transparent;

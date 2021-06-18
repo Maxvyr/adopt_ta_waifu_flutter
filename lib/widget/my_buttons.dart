@@ -1,7 +1,7 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
-import 'package:adopt_ta_waifu/controller/constant/Icons.dart';
-import 'package:adopt_ta_waifu/controller/constant/Images.dart';
-import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/icons.dart';
+import 'package:adopt_ta_waifu/controller/constant/images.dart';
+import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

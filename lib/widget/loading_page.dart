@@ -1,4 +1,4 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage extends StatelessWidget {
@@ -15,8 +15,10 @@ class LoadingPage extends StatelessWidget {
             child: Container(
               width: widthTotal * 0.3,
               height: widthTotal * 0.3,
-              color: backgroundDark,
-              child: CircularProgressIndicator(),
+              color: blueMain,
+              child: CircularProgressIndicator(
+                color: white,
+              ),
             ),
           ),
         ),
@@ -39,8 +41,10 @@ class LoadingPageError extends StatelessWidget {
             child: Container(
               width: widthTotal * 0.3,
               height: widthTotal * 0.3,
-              color: red,
-              child: CircularProgressIndicator(),
+              color: blueMain,
+              child: CircularProgressIndicator(
+                color: red,
+              ),
             ),
           ),
         ),

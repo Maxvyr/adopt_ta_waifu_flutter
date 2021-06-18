@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:adopt_ta_waifu/models/Waifu.dart';
-import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
 import 'package:http/http.dart' as http;
 
 class CallApi {

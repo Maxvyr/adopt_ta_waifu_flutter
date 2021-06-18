@@ -33,8 +33,10 @@ dependencies:
   share_plus:
   http:
   path_provider:
-  bloc:
-  flutter_bloc:
+  flutter_easyloading:
+  cached_network_image:
+  flutter_native_splash:
+
 
 dev_dependencies:
   flutter_test:
@@ -67,10 +69,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: AnimeAce
+      fonts:
+        - asset: assets/fonts/AnimeAce.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
