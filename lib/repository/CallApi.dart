@@ -32,7 +32,6 @@ class CallApi {
     List data = map["fields"];
     List<Waifu> waifus = [];
     data.forEach((element) {
-      print(element);
       Waifu waifu = Waifu.fromMap(element);
       waifus.add(waifu);
     });
