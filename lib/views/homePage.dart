@@ -35,29 +35,30 @@ class _MyHomePageState extends State<MyHomePage> {
     var heightTotal = MediaQuery.of(context).size.height;
     var widthTotal = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: FutureBuilder(
-          future: _waifus,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
+    return FutureBuilder(
+      future: _waifus,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.active:
+            return LoadingPage();
+          case ConnectionState.done:
             List<Waifu> waifus = snapshot.data;
 
-            switch (snapshot.connectionState) {
-              case ConnectionState.active:
-                return LoadingPage();
-              case ConnectionState.done:
-                return _body(
-                  heightTotal,
-                  widthTotal,
-                  waifus,
-                );
-              case ConnectionState.none:
-                return LoadingPage();
-              case ConnectionState.waiting:
-                return LoadingPage();
-              default:
-                return LoadingPageError();
-            }
-          }),
+            return Scaffold(
+              body: _body(
+                heightTotal,
+                widthTotal,
+                waifus,
+              ),
+            );
+          case ConnectionState.none:
+            return LoadingPage();
+          case ConnectionState.waiting:
+            return LoadingPage();
+          default:
+            return LoadingPageError();
+        }
+      },
     );
   }
 

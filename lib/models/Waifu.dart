@@ -9,8 +9,22 @@ class Waifu {
     required this.previewImg,
   });
 
+  // Waifu.fromMap(Map<String, dynamic> json) {
+  //   title = json["title"];
+  //   fields = json["fields"];
+
+  //   fields.forEach((element) {
+  //     author = element["author"];
+  //     file = element["file"];
+  //     sample = element["sample"];
+  //     previewImg = element["preview_img"];
+  //   });
+  // }
+
   Waifu.fromMap(Map<String, dynamic> json) {
-    title = json["title"];
-    fields = json["fields"];
+    author = json["author"];
+    file = json["file"];
+    sample = json["sample"];
+    previewImg = json["preview_img"];
   }
 }
