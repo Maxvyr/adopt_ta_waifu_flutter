@@ -1,5 +1,7 @@
 import 'package:adopt_ta_waifu/controller/constant/Strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
+import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/repository/CallApi.dart';
 import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
 import 'package:adopt_ta_waifu/views/ShowCardPage.dart';
 
@@ -14,26 +16,62 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late Future<List<Waifu>> _waifus;
+
+  @override
+  void initState() {
+    super.initState();
+    _waifus = _initList();
+  }
+
+  Future<List<Waifu>> _initList() async {
+    List<Waifu> list = [];
+    list = await CallApi().getWaifus();
+    return list;
+  }
+
   @override
   Widget build(BuildContext context) {
     var heightTotal = MediaQuery.of(context).size.height;
     var widthTotal = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: _body(
-        heightTotal,
-        widthTotal,
-      ),
+      body: FutureBuilder(
+          future: _waifus,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            List<Waifu> waifus = snapshot.data;
+
+            switch (snapshot.connectionState) {
+              case ConnectionState.active:
+                return LoadingPage();
+              case ConnectionState.done:
+                return _body(
+                  heightTotal,
+                  widthTotal,
+                  waifus,
+                );
+              case ConnectionState.none:
+                return LoadingPage();
+              case ConnectionState.waiting:
+                return LoadingPage();
+              default:
+                return LoadingPageError();
+            }
+          }),
     );
   }
 
-  Widget _body(double heightTotal, double widthTotal) {
+  Widget _body(
+    double heightTotal,
+    double widthTotal,
+    List<Waifu> waifus,
+  ) {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
         _topPage(heightTotal, widthTotal),
         spacingH(height: heightTotal * 0.1),
-        _buttonsNext(),
+        _buttonsNext(waifus),
       ],
     );
   }
@@ -73,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buttonsNext() {
+  Widget _buttonsNext(List<Waifu> waifus) {
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -84,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
             context,
             ShowCardPage(
               strWaifu,
-              DummyWaifuList().getWaifus(),
+              waifus,
             ),
           ),
         ),
@@ -94,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
             context,
             ShowCardPage(
               strHusbando,
-              DummyWaifuList().getWaifus(),
+              waifus,
             ),
           ),
         ),

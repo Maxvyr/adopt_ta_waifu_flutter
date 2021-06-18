@@ -5,14 +5,15 @@ import 'package:adopt_ta_waifu/repository/DummyWaifuList.dart';
 import 'package:http/http.dart' as http;
 
 class CallApi {
-  String url = "https://adopt-ta-waifu.herokuapp.com/api";
+  String _url = "https://adopt-ta-waifu.herokuapp.com/api";
 
-  Future<List> _requestGet(String url) async {
-    Uri uriApi = Uri.parse(url);
+  Future<List> _requestGet() async {
+    Uri uriApi = Uri.parse(_url);
     final res = await http.get(uriApi);
 
     if (res.statusCode == 200) {
       final body = json.decode(res.body);
+      print("BODY => $body");
       return body;
     } else if (res.statusCode == 404) {
       // TODO gestion special
@@ -23,8 +24,8 @@ class CallApi {
     }
   }
 
-  Future<List<Waifu>> getWaifus(String url) async {
-    final list = await _requestGet(url);
+  Future<List<Waifu>> getWaifus() async {
+    final list = await _requestGet();
     final mapWaifu = list.map((json) => Waifu.fromMap(json));
     return mapWaifu.toList();
   }
