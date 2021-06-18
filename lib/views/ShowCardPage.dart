@@ -98,10 +98,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
   void _shareImg() async {
     Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
-    await EasyLoading.show(
-      status: strLoading,
-      maskType: EasyLoadingMaskType.black,
-    );
+    animationLoading();
   }
 
   void _nextPage() {
@@ -129,5 +126,12 @@ class _ShowCardPageState extends State<ShowCardPage> {
       ..userInteractions = true
       ..dismissOnTap = true
       ..customAnimation = CustomAnimation();
+  }
+
+  void animationLoading() async {
+    EasyLoading.show(
+      status: strLoading,
+      maskType: EasyLoadingMaskType.black,
+    );
   }
 }
