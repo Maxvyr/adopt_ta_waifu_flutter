@@ -21,7 +21,10 @@ Widget placeHolderWidget() {
   return Stack(
     alignment: Alignment.center,
     children: [
-      Image.asset(placeHolderImg),
+      Image.asset(
+        placeHolderImg,
+        fit: BoxFit.fill,
+      ),
       Container(
         height: 100,
         width: 100,

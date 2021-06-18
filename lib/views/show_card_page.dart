@@ -58,12 +58,19 @@ class _ShowCardPageState extends State<ShowCardPage> {
 
   Widget imgCard(double heightTotal, double widthTotal) {
     String imgLink = widget.waifus[index].sample;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(25.0),
-      child: myCacheImageNetwork(
-        imgLink,
-        widthTotal,
-        heightTotal,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25.0),
+      ),
+      elevation: 15.0,
+      shadowColor: blueMain,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(25.0),
+        child: myCacheImageNetwork(
+          imgLink,
+          widthTotal,
+          heightTotal,
+        ),
       ),
     );
   }
