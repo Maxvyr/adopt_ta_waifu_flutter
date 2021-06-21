@@ -40,9 +40,7 @@ class CallApi {
       // TODO gestion special
       // for now list code hard but after DB
       return [
-        {
-          "404": DummyWaifuList().getWaifus()
-        }
+        {"404": DummyWaifuList().getWaifus()}
       ];
     } else {
       return [
@@ -59,7 +57,6 @@ class CallApi {
     listKonochan.forEach((element) {
       Waifu waifu = Waifu.fromMap(element);
       waifusKonochan.add(waifu);
-      print("waifus konochan => ${waifusKonochan.length}");
     });
 
     final listYandere = await _requestGetList(_urlYandere);
@@ -67,7 +64,6 @@ class CallApi {
     listYandere.forEach((element) {
       Waifu waifu = Waifu.fromMap(element);
       waifusYandere.add(waifu);
-      print("waifus yandere => ${waifusYandere.length}");
     });
 
     return waifusKonochan + waifusYandere;
