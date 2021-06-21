@@ -6,9 +6,10 @@ import 'package:http/http.dart' as http;
 
 class CallApi {
   String _url = "https://adopt-ta-waifu.herokuapp.com/api";
+  String _urlKonochan = "https://konachan.com/post.json";
+  String _urlYandere = "https://yande.re/post.json";
 
   Future<Map<String, dynamic>> _requestGet() async {
-    // Future<List> _requestGet() async {
     Uri uriApi = Uri.parse(_url);
     final res = await http.get(uriApi);
 
@@ -27,14 +28,44 @@ class CallApi {
     }
   }
 
+  Future<List<dynamic>> _requestGetList(String url) async {
+    Uri uriApi = Uri.parse(url);
+    final res = await http.get(uriApi);
+
+    if (res.statusCode == 200) {
+      List<dynamic> body = json.decode(res.body);
+      print("BODY => $body");
+      return body;
+    } else if (res.statusCode == 404) {
+      // TODO gestion special
+      // for now list code hard but after DB
+      return [
+        {"404": DummyWaifuList().getWaifus()}
+      ];
+    } else {
+      return [
+        {
+          "code": [res.statusCode]
+        }
+      ];
+    }
+  }
+
   Future<List<Waifu>> getWaifus() async {
-    final map = await _requestGet();
-    List data = map["fields"];
-    List<Waifu> waifus = [];
-    data.forEach((element) {
+    final listKonochan = await _requestGetList(_urlKonochan);
+    List<Waifu> waifusKonochan = [];
+    listKonochan.forEach((element) {
       Waifu waifu = Waifu.fromMap(element);
-      waifus.add(waifu);
+      waifusKonochan.add(waifu);
     });
-    return waifus;
+
+    final listYandere = await _requestGetList(_urlYandere);
+    List<Waifu> waifusYandere = [];
+    listYandere.forEach((element) {
+      Waifu waifu = Waifu.fromMap(element);
+      waifusYandere.add(waifu);
+    });
+
+    return waifusKonochan + waifusYandere;
   }
 }
