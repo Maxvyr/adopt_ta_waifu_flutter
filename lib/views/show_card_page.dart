@@ -100,7 +100,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
     return IconButton(
       onPressed: callback,
       icon: isLike ? Icon(likeIcon) : Icon(dislikeIcon),
-      iconSize: 44.0,
+      iconSize: 70.0,
       color: isDarkMode ? white : blueMain,
     );
   }

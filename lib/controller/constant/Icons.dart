@@ -32,5 +32,5 @@ const unknowIcon = CupertinoIcons.gift_alt;
 const deleteIcon = Icons.delete_outlined;
 const editIcon = Icons.edit;
 const iconSade = Icons.sentiment_dissatisfied;
-const dislikeIcon = Icons.thumb_down;
-const likeIcon = Icons.thumb_up;
+const dislikeIcon = Icons.sentiment_dissatisfied_outlined;
+const likeIcon = Icons.sentiment_very_satisfied_outlined;
