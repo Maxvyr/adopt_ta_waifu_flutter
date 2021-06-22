@@ -27,7 +27,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
   @override
   void initState() {
     super.initState();
-    configLoadingWhenShare();
+    _configLoadingWhenShare();
   }
 
   @override
@@ -54,23 +54,27 @@ class _ShowCardPageState extends State<ShowCardPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          imgCard(heightTotal, widthTotal),
+          _imgCard(
+            heightTotal,
+            widthTotal,
+          ),
           _rowButton(),
         ],
       ),
     );
   }
 
-  Widget imgCard(double heightTotal, double widthTotal) {
+  Widget _imgCard(double heightTotal, double widthTotal) {
     String imgLink = widget.waifus[index].sample;
+    double borderRadius = 25.0;
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       elevation: 15.0,
-      shadowColor: blueMain,
+      shadowColor: isDarkMode ? white : blueMain,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: myCacheImageNetwork(
           imgLink,
           widthTotal,
@@ -85,11 +89,11 @@ class _ShowCardPageState extends State<ShowCardPage> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        iconButtonCustom(
+        _iconButtonCustom(
           isLike: true,
           callback: () => _shareImg(),
         ),
-        iconButtonCustom(
+        _iconButtonCustom(
           isLike: false,
           callback: () => _nextPage(),
         ),
@@ -97,7 +101,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
     );
   }
 
-  Widget iconButtonCustom(
+  Widget _iconButtonCustom(
       {required bool isLike, required VoidCallback callback}) {
     return IconButton(
       onPressed: callback,
@@ -110,7 +114,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
   void _shareImg() async {
     Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
-    animationLoading();
+    _animationLoading();
   }
 
   void _nextPage() {
@@ -123,7 +127,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
     }
   }
 
-  void configLoadingWhenShare() {
+  void _configLoadingWhenShare() {
     EasyLoading.instance
       ..displayDuration = const Duration(milliseconds: 2000)
       ..indicatorType = EasyLoadingIndicatorType.fadingGrid
@@ -140,7 +144,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
       ..customAnimation = CustomAnimation();
   }
 
-  void animationLoading() async {
+  void _animationLoading() async {
     EasyLoading.show(
       status: strLoading,
       maskType: EasyLoadingMaskType.black,
