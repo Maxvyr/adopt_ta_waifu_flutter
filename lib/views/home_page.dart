@@ -1,5 +1,6 @@
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
+import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
@@ -79,9 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _topPage(double heightTotal, double widthTotal) {
     double radiusImg = widthTotal * 0.1;
-    final Brightness brightnessValue =
-        MediaQuery.of(context).platformBrightness;
-    bool isDarkMode = brightnessValue == Brightness.dark;
+    bool isDarkMode = isInDarkMode(context);
 
     return Stack(
       alignment: Alignment.bottomCenter,

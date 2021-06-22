@@ -3,6 +3,7 @@ import 'package:adopt_ta_waifu/controller/constant/icons.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
+import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
@@ -20,6 +21,7 @@ class ShowCardPage extends StatefulWidget {
 
 class _ShowCardPageState extends State<ShowCardPage> {
   //variable
+  late bool isDarkMode;
   int index = 0;
 
   @override
@@ -32,6 +34,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
   Widget build(BuildContext context) {
     var heightTotal = MediaQuery.of(context).size.height;
     var widthTotal = MediaQuery.of(context).size.width;
+    isDarkMode = isInDarkMode(context);
 
     return Scaffold(
       appBar: MyAppBar(
@@ -98,7 +101,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
       onPressed: callback,
       icon: isLike ? Icon(likeIcon) : Icon(dislikeIcon),
       iconSize: 44.0,
-      color: blueMain,
+      color: isDarkMode ? white : blueMain,
     );
   }
 
