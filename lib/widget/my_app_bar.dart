@@ -1,4 +1,4 @@
-import 'package:adopt_ta_waifu/controller/constant/Colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/icons.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
