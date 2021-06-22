@@ -3,6 +3,7 @@ import 'package:adopt_ta_waifu/controller/constant/icons.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
+import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
@@ -20,22 +21,26 @@ class ShowCardPage extends StatefulWidget {
 
 class _ShowCardPageState extends State<ShowCardPage> {
   //variable
+  late bool isDarkMode;
   int index = 0;
 
   @override
   void initState() {
     super.initState();
-    configLoadingWhenShare();
+    _configLoadingWhenShare();
   }
 
   @override
   Widget build(BuildContext context) {
     var heightTotal = MediaQuery.of(context).size.height;
     var widthTotal = MediaQuery.of(context).size.width;
+    isDarkMode = isInDarkMode(context);
 
     return Scaffold(
       appBar: MyAppBar(
         title: widget.title,
+        context: context,
+        isDarkMode: isDarkMode,
       ),
       body: _body(
         heightTotal,
@@ -49,23 +54,27 @@ class _ShowCardPageState extends State<ShowCardPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          imgCard(heightTotal, widthTotal),
+          _imgCard(
+            heightTotal,
+            widthTotal,
+          ),
           _rowButton(),
         ],
       ),
     );
   }
 
-  Widget imgCard(double heightTotal, double widthTotal) {
+  Widget _imgCard(double heightTotal, double widthTotal) {
     String imgLink = widget.waifus[index].sample;
+    double borderRadius = 25.0;
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       elevation: 15.0,
-      shadowColor: blueMain,
+      shadowColor: isDarkMode ? white : blueMain,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: myCacheImageNetwork(
           imgLink,
           widthTotal,
@@ -80,11 +89,11 @@ class _ShowCardPageState extends State<ShowCardPage> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        iconButtonCustom(
+        _iconButtonCustom(
           isLike: true,
           callback: () => _shareImg(),
         ),
-        iconButtonCustom(
+        _iconButtonCustom(
           isLike: false,
           callback: () => _nextPage(),
         ),
@@ -92,20 +101,20 @@ class _ShowCardPageState extends State<ShowCardPage> {
     );
   }
 
-  Widget iconButtonCustom(
+  Widget _iconButtonCustom(
       {required bool isLike, required VoidCallback callback}) {
     return IconButton(
       onPressed: callback,
       icon: isLike ? Icon(likeIcon) : Icon(dislikeIcon),
-      iconSize: 44.0,
-      color: blueMain,
+      iconSize: 70.0,
+      color: isDarkMode ? white : blueMain,
     );
   }
 
   void _shareImg() async {
     Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
-    animationLoading();
+    _animationLoading();
   }
 
   void _nextPage() {
@@ -118,7 +127,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
     }
   }
 
-  void configLoadingWhenShare() {
+  void _configLoadingWhenShare() {
     EasyLoading.instance
       ..displayDuration = const Duration(milliseconds: 2000)
       ..indicatorType = EasyLoadingIndicatorType.fadingGrid
@@ -135,7 +144,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
       ..customAnimation = CustomAnimation();
   }
 
-  void animationLoading() async {
+  void _animationLoading() async {
     EasyLoading.show(
       status: strLoading,
       maskType: EasyLoadingMaskType.black,

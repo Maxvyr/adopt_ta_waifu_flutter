@@ -4,14 +4,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 Widget myCacheImageNetwork(
-    String imgUrl, double widthTotal, double heightTotal) {
+  String imgUrl,
+  double widthTotal,
+  double heightTotal,
+) {
   return CachedNetworkImage(
     imageUrl: imgUrl,
-    width: widthTotal * 0.8,
-    height: heightTotal * 0.5,
+    width: widthTotal * 0.9,
+    height: heightTotal * 0.7,
     placeholder: (context, url) => placeHolderWidget(),
     errorWidget: (context, url, error) => Icon(errorIcon),
-    fit: BoxFit.fill,
+    fit: BoxFit.contain,
     fadeInCurve: Curves.fastOutSlowIn,
     fadeOutCurve: Curves.elasticOut,
   );
@@ -23,7 +26,7 @@ Widget placeHolderWidget() {
     children: [
       Image.asset(
         placeHolderImg,
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
       ),
       Container(
         height: 100,

@@ -1,5 +1,7 @@
+import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
+import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
@@ -17,6 +19,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   late Future<List<Waifu>> _waifus;
+  late bool isDarkMode;
 
   @override
   void initState() {
@@ -34,12 +37,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var heightTotal = MediaQuery.of(context).size.height;
     var widthTotal = MediaQuery.of(context).size.width;
+    isDarkMode = isInDarkMode(context);
 
     return FutureBuilder(
       future: _waifus,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
+            return LoadingPage();
+          case ConnectionState.none:
+            return LoadingPage();
+          case ConnectionState.waiting:
             return LoadingPage();
           case ConnectionState.done:
             List<Waifu> waifus = snapshot.data;
@@ -51,10 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 waifus,
               ),
             );
-          case ConnectionState.none:
-            return LoadingPage();
-          case ConnectionState.waiting:
-            return LoadingPage();
           default:
             return LoadingPageError();
         }
@@ -79,9 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _topPage(double heightTotal, double widthTotal) {
     double radiusImg = widthTotal * 0.1;
-    final Brightness brightnessValue =
-        MediaQuery.of(context).platformBrightness;
-    bool isDarkMode = brightnessValue == Brightness.dark;
 
     return Stack(
       alignment: Alignment.bottomCenter,
@@ -113,12 +114,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buttonsNext(List<Waifu> waifus) {
+    Color txtColor = isDarkMode ? blueMain : white;
+    Color backgroundColor = isDarkMode ? white : blueMain;
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         MyButtonElevated(
           txtBt: strWaifu,
+          txtColor: txtColor,
+          backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
             ShowCardPage(
@@ -129,6 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         MyButtonElevated(
           txtBt: strHusbando,
+          txtColor: txtColor,
+          backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
             ComingSoon(strHusbando),
