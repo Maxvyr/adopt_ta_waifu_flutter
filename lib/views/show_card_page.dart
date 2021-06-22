@@ -39,6 +39,8 @@ class _ShowCardPageState extends State<ShowCardPage> {
     return Scaffold(
       appBar: MyAppBar(
         title: widget.title,
+        context: context,
+        isDarkMode: isDarkMode,
       ),
       body: _body(
         heightTotal,

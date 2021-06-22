@@ -22,6 +22,7 @@ const searchIcon = CupertinoIcons.search;
 const arrowNextIcon = Icons.arrow_forward_ios_rounded;
 const arrowDownIcon = Icons.keyboard_arrow_down_rounded;
 const arrowBackIOSIcon = Icons.arrow_back_ios;
+const arrowBackAndroidIcon = Icons.chevron_left;
 const addCupertinoIcon = CupertinoIcons.add;
 const addMaterialIcon = Icons.add;
 const exitIcon = Icons.exit_to_app;

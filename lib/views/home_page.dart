@@ -42,6 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
             return LoadingPage();
+          case ConnectionState.none:
+            return LoadingPage();
+          case ConnectionState.waiting:
+            return LoadingPage();
           case ConnectionState.done:
             List<Waifu> waifus = snapshot.data;
 
@@ -52,10 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 waifus,
               ),
             );
-          case ConnectionState.none:
-            return LoadingPage();
-          case ConnectionState.waiting:
-            return LoadingPage();
           default:
             return LoadingPageError();
         }
