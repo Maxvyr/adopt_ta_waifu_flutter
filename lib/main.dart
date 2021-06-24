@@ -1,7 +1,6 @@
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/connectivity_provider.dart';
 import 'package:adopt_ta_waifu/views/before_home_page.dart';
-import 'package:adopt_ta_waifu/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
