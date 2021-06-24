@@ -36,6 +36,9 @@ dependencies:
   flutter_easyloading:
   cached_network_image:
   flutter_native_splash:
+  # connectivity_plus:
+  connectivity:
+  provider:
 
 
 dev_dependencies:
