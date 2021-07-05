@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
 class CallApi {
@@ -30,25 +31,35 @@ class CallApi {
 
   Future<List<dynamic>> _requestGetList(String url) async {
     Uri uriApi = Uri.parse(url);
-    final res = await http.get(uriApi);
+    // final res = await http.get(uriApi);
+    try {
+      final res = await Dio().get(url);
 
-    if (res.statusCode == 200) {
-      List<dynamic> body = json.decode(res.body);
-      print("BODY => $body");
-      return body;
-    } else if (res.statusCode == 404) {
-      // TODO gestion special
-      // for now list code hard but after DB
-      return [
-        {"404": DummyWaifuList().getWaifus()}
-      ];
-    } else {
-      return [
-        {
-          "code": [res.statusCode]
-        }
-      ];
+      print(res);
+    } catch (e) {
+      print(e);
     }
+
+    // if (res.statusCode == 200) {
+    //   // List<dynamic> body = json.decode(res.body);
+    //   print("BODY => $body");
+    //   return body;
+    // } else if (res.statusCode == 404) {
+    //   // TODO gestion special
+    //   // for now list code hard but after DB
+    //   return [
+    //     {"404": DummyWaifuList().getWaifus()}
+    //   ];
+    // } else {
+    //   return [
+    //     {
+    //       "code": [res.statusCode]
+    //     }
+    //   ];
+    // }
+    List<dynamic> body = [];
+    print("BODY => $body");
+    return body;
   }
 
   Future<List<Waifu>> getWaifus() async {
