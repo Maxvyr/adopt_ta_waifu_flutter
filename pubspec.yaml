@@ -39,6 +39,10 @@ dependencies:
   # connectivity_plus:
   connectivity:
   provider:
+  hive:
+  hive_flutter:
+  flutter_riverpod:
+  dio:
 
 
 dev_dependencies:
