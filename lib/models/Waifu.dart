@@ -1,6 +1,5 @@
 class Waifu {
   late String author, file, previewImg, sample, title;
-  late List<Map> fields;
 
   Waifu({
     required this.author,
