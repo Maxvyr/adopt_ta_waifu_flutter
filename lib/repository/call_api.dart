@@ -30,36 +30,22 @@ class CallApi {
   // }
 
   Future<List<dynamic>> _requestGetList(String url) async {
-    Uri uriApi = Uri.parse(url);
-    // final res = await http.get(uriApi);
+    List<dynamic> body = [];
+
     try {
       final res = await Dio().get(url);
-
-      print(res);
+      if (res.statusCode == 200) {
+        body = res.data;
+      } else {
+        print("${res.statusCode} & ${res.statusMessage}");
+        body = DummyWaifuList().getWaifus();
+      }
+      print("BODY => $body");
+      return body;
     } catch (e) {
       print(e);
+      return body;
     }
-
-    // if (res.statusCode == 200) {
-    //   // List<dynamic> body = json.decode(res.body);
-    //   print("BODY => $body");
-    //   return body;
-    // } else if (res.statusCode == 404) {
-    //   // TODO gestion special
-    //   // for now list code hard but after DB
-    //   return [
-    //     {"404": DummyWaifuList().getWaifus()}
-    //   ];
-    // } else {
-    //   return [
-    //     {
-    //       "code": [res.statusCode]
-    //     }
-    //   ];
-    // }
-    List<dynamic> body = [];
-    print("BODY => $body");
-    return body;
   }
 
   Future<List<Waifu>> getWaifus() async {
