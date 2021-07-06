@@ -35,7 +35,6 @@ dependencies:
   path_provider:
   flutter_easyloading:
   cached_network_image:
-  flutter_native_splash:
   # connectivity_plus:
   connectivity:
   provider:
@@ -49,6 +48,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
+  # https://pub.dev/packages/flutter_native_splash
+  flutter_native_splash:
   # https://pub.dev/packages/flutter_launcher_icons
   flutter_launcher_icons:
 
