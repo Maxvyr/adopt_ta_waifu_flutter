@@ -1,21 +1,22 @@
 {
-    "name": "adopt_ta_waifu_android_flutter",
-    "short_name": "adopt_ta_waifu_android_flutter",
-    "start_url": ".",
+    "name": "Adopt ta Waifu",
+    "short_name": "Waifus",
+    "theme_color": "#013e73",
+    "background_color": "#013e73",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "description": "adopt ta waifu",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "icons/shibi_waifu192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "icons/shibi_waifu512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
