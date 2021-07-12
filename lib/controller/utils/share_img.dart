@@ -8,7 +8,7 @@ import 'package:share_plus/share_plus.dart';
 
 shareImg(Waifu waifu) {
   File imgFile;
-  fileFromImageUrl(waifu.file, waifu.author).then((file) {
+  fileFromImageUrl(waifu.file!, waifu.author!).then((file) {
     imgFile = file;
     Share.shareFiles([imgFile.path], text: strBodySharing).then((value) {
       // launch share and hide loading indicator
