@@ -28,8 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<Waifu>> _initList() async {
+    Map <String, dynamic> map = await CallWaifus().getWaifus();
     List<Waifu> list = [];
-    list = await CallApi().getWaifus();
+    // TODO convert with Riverpod
+    list = map["fields"];
     return list;
   }
 

@@ -2,67 +2,112 @@ import 'dart:convert';
 
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
-import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
-class CallApi {
-  // String _url = "https://adopt-ta-waifu.herokuapp.com/api";
-  String _urlKonochan = "https://konachan.com/post.json";
-  String _urlYandere = "https://yande.re/post.json";
+class CallWaifus {
+  final String _urlKonochan = "https://konachan.com/post.json";
+  final String _urlYandere = "https://yande.re/post.json";
+  final String _urlGelbooru = "https://gelbooru-xsd8bjco8ukx.runkit.sh/posts";
 
-  // Future<Map<String, dynamic>> _requestGet() async {
-  //   Uri uriApi = Uri.parse(_url);
-  //   final res = await http.get(uriApi);
+  Future<List<dynamic>> _requestGetListFromJsonList(String url) async {
+    final Uri uriApi = Uri.parse(url);
+    final res = await http.get(uriApi);
 
-  //   if (res.statusCode == 200) {
-  //     Map<String, dynamic> body = json.decode(res.body);
-  //     print("BODY => $body");
-  //     return body;
-  //   } else if (res.statusCode == 404) {
-  //     // TODO gestion special
-  //     // for now list code hard but after DB
-  //     return {"404": DummyWaifuList().getWaifus()};
-  //   } else {
-  //     return {
-  //       "code": [res.statusCode]
-  //     };
-  //   }
-  // }
-
-  Future<List<dynamic>> _requestGetList(String url) async {
-    List<dynamic> body = [];
-
-    try {
-      final res = await Dio().get(url);
-      if (res.statusCode == 200) {
-        body = res.data;
-      } else {
-        print("${res.statusCode} & ${res.statusMessage}");
-        body = DummyWaifuList().getWaifus();
-      }
+    if (res.statusCode == 200) {
+      final List<dynamic> body = json.decode(res.body) as List<dynamic>;
       print("BODY => $body");
       return body;
-    } catch (e) {
-      print(e);
-      return body;
+    } else if (res.statusCode == 404) {
+      // TODO gestion special
+      // for now list code hard but after DB
+      return [
+        {"404": DummyWaifuList().getWaifus()}
+      ];
+    } else {
+      return [
+        {
+          "code": [res.statusCode]
+        }
+      ];
     }
   }
 
-  Future<List<Waifu>> getWaifus() async {
-    final listKonochan = await _requestGetList(_urlKonochan);
-    List<Waifu> waifusKonochan = [];
+  Future<Map<String, dynamic>> _requestGetListFromJsonMap(String url) async {
+    final Uri uriApi = Uri.parse(url);
+    final res = await http.get(uriApi);
+
+    if (res.statusCode == 200) {
+      final Map<String, dynamic> body =
+          jsonDecode(res.body) as Map<String, dynamic>;
+      print("BODY => $body");
+      return body;
+    } else if (res.statusCode == 404) {
+      return {
+        "404": DummyWaifuList().getWaifus(),
+      };
+    } else {
+      return {
+        "code": [res.statusCode],
+      };
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> getKonochan() async {
+    final List<dynamic> listKonochan =
+        await _requestGetListFromJsonList(_urlKonochan);
+    final List<Map<String, dynamic>> konochanList = [];
     listKonochan.forEach((element) {
-      Waifu waifu = Waifu.fromMap(element);
-      waifusKonochan.add(waifu);
+      final Waifu waifu = Waifu.fromKonochan(element);
+      final Map<String, dynamic> map = waifu.toJson();
+      konochanList.add(map);
     });
 
-    final listYandere = await _requestGetList(_urlYandere);
-    List<Waifu> waifusYandere = [];
+    return konochanList;
+  }
+
+  Future<List<Map<String, dynamic>>> getYandere() async {
+    final List<dynamic> listYandere =
+        await _requestGetListFromJsonList(_urlYandere);
+    final List<Map<String, dynamic>> yandereList = [];
     listYandere.forEach((element) {
-      Waifu waifu = Waifu.fromMap(element);
-      waifusYandere.add(waifu);
+      final Waifu waifu = Waifu.fromKonochan(element);
+      final Map<String, dynamic> map = waifu.toJson();
+      yandereList.add(map);
     });
 
-    return waifusKonochan + waifusYandere;
+    return yandereList;
+  }
+
+  Future<List<Map<String, dynamic>>> getGelbooru() async {
+    final Map<String, dynamic> mapGelbooru =
+        await _requestGetListFromJsonMap(_urlGelbooru);
+    final List<Map<String, dynamic>> gelbooruList = [];
+    final listGelbooru = mapGelbooru["posts"];
+    listGelbooru.forEach((element) {
+      final Waifu waifu = Waifu.fromGelbooru(element);
+      final Map<String, dynamic> map = waifu.toJson();
+      gelbooruList.add(map);
+    });
+
+    return gelbooruList;
+  }
+
+  Future<Map<String, dynamic>> getWaifus() async {
+    final List<Map<String, dynamic>> waifusKonochan;
+    final List<Map<String, dynamic>> waifusYandere;
+    final List<Map<String, dynamic>> waifusGelbooru;
+    waifusKonochan = await getKonochan();
+    waifusYandere = await getYandere();
+    waifusGelbooru = await getGelbooru();
+
+    final Map<String, dynamic> mapWaifu = {
+      "fields": [
+        waifusKonochan,
+        waifusYandere,
+        waifusGelbooru,
+      ],
+    };
+
+    return mapWaifu;
   }
 }
