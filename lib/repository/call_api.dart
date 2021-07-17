@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
-import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
 class CallWaifus {
