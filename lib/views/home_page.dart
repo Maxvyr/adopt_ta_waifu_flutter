@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<Waifu>> _initList() async {
-    List<Waifu> list =  await CallWaifus().getWaifus();
+    List<Waifu> list = await CallWaifus().getWaifus();
     return list;
   }
 
@@ -49,7 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
           case ConnectionState.waiting:
             return LoadingPage();
           case ConnectionState.done:
-            List<Waifu> waifus = snapshot.data;
+            List<Waifu> waifus = [];
+            if (snapshot.data == null) {
+              print("et merde");
+            } else {
+              waifus = snapshot.data;
+            }
 
             return Scaffold(
               body: _body(
