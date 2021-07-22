@@ -1,10 +1,11 @@
-# ADOPT TA WAIFU ANDROID APP
+# ADOPT TA WAIFU WEB APP
+
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 
 Show image waifu or husbando and if you like this image you can share it with your friend
 
 ## Framework
 
-- [Android](https://developer.android.com/)
 - [Flutter](https://flutter.dev/)
 
 ## Pub.dev Package user

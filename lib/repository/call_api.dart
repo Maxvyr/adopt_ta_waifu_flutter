@@ -19,7 +19,7 @@ class CallWaifus {
       );
       print(res.statusCode);
       if (res.statusCode == 200) {
-        List<dynamic> body = cnv.jsonDecode(res.body);
+        final List<dynamic> body = cnv.jsonDecode(res.body) as List<dynamic>;
         print("BODY => $body");
         return body;
       } else if (res.statusCode == 404) {
@@ -46,8 +46,8 @@ class CallWaifus {
       );
       print(res.statusCode);
       if (res.statusCode == 200) {
-        Map<String, dynamic> body = cnv.json.decode(res.body);
-        List<dynamic> list = body["posts"];
+        final Map<String, dynamic> body = cnv.json.decode(res.body) as Map<String, dynamic>;
+        final List<dynamic> list = body["posts"] as List<dynamic>;
         return list;
       } else if (res.statusCode == 404) {
         print("${res.statusCode}");

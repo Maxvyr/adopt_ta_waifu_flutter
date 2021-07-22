@@ -30,7 +30,7 @@ class MyText extends Text {
             shadows: [
               Shadow(
                 color: colorShadow,
-                offset: Offset(1, 1),
+                offset: const Offset(1, 1),
                 blurRadius: 4.0,
               ),
             ],
@@ -40,8 +40,8 @@ class MyText extends Text {
 
 class MyCupertinoText extends DefaultTextStyle {
   MyCupertinoText({
-    required data,
-    color: black,
+    required String  data,
+    Color color: black,
   }) : super(
           style: TextStyle(
             color: color,

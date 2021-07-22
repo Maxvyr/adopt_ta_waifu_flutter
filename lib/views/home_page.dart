@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return FutureBuilder(
       future: _waifus,
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<List<Waifu>> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
             return LoadingPage();
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (snapshot.data == null) {
               print("et merde");
             } else {
-              waifus = snapshot.data;
+              waifus = snapshot.data!;
             }
 
             return Scaffold(
@@ -130,16 +130,16 @@ class ButtonsNext extends StatelessWidget {
   final List<Waifu> waifus;
   late final bool isDarkMode;
 
+  // ignore: prefer_const_constructors_in_immutables
   ButtonsNext(this.waifus);
 
   @override
   Widget build(BuildContext context) {
     isDarkMode = isInDarkMode(context);
-    
-    Color txtColor = isDarkMode ? blueMain : white;
-    Color backgroundColor = isDarkMode ? white : blueMain;
+    final Color txtColor = isDarkMode ? blueMain : white;
+    final Color backgroundColor = isDarkMode ? white : blueMain;
+
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         MyButtonElevated(

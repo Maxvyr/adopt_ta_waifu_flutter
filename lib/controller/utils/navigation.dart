@@ -23,7 +23,7 @@ void animationPage(
   );
 }
 
-Route animationOrientation(Widget child, animationDuration) {
+Route animationOrientation(Widget child, int animationDuration) {
   return PageRouteBuilder(
     transitionDuration: Duration(milliseconds: animationDuration),
     transitionsBuilder: (context, animation, animationTime, child) {
@@ -33,7 +33,6 @@ Route animationOrientation(Widget child, animationDuration) {
       );
 
       return ScaleTransition(
-        alignment: Alignment.center,
         scale: animation,
         child: child,
       );
@@ -44,6 +43,6 @@ Route animationOrientation(Widget child, animationDuration) {
   );
 }
 
-void goToNextPageWeb(BuildContext context, dynamic page) {
+void goToNextPageWeb(BuildContext context, String page) {
   Navigator.of(context).pushReplacementNamed(page);
 }

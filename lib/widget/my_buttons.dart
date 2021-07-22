@@ -8,12 +8,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'my_materials.dart';
 
-openGooglePlay() async {
+void openGooglePlay() async {
   String url = "";
   await canLaunch(url) ? await launch(url) : print("Impossible d'ouvrir l'url");
 }
 
-openAppStore() async {
+void openAppStore() async {
   String url = "";
   await canLaunch(url) ? await launch(url) : print("Impossible d'ouvrir l'url");
 }
@@ -221,9 +221,9 @@ class MyCupertinoButton extends CupertinoButton {
 Widget btAnswer({
   required String text,
   required VoidCallback callback,
-  txtSize: 20.0,
+  double txtSize = 20.0,
 }) {
-  return Container(
+  return SizedBox(
     width: 190,
     child: MyCupertinoButton(
       text: text,
