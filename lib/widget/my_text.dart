@@ -1,7 +1,7 @@
 import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
-class MyText extends Text {
+class MyText extends SelectableText {
   MyText({
     required String data,
     double fontSize: 16.0,
@@ -9,7 +9,6 @@ class MyText extends Text {
     FontWeight fontWeight: FontWeight.normal,
     FontStyle fontStyle: FontStyle.normal,
     Color colorShadow: transparent,
-    TextOverflow overflow: TextOverflow.ellipsis,
     double textScaleFactor: 1,
     double height: 1,
     TextAlign alignement: TextAlign.left,
@@ -17,7 +16,6 @@ class MyText extends Text {
   }) : super(
           data,
           textAlign: alignement,
-          overflow: overflow,
           textScaleFactor: textScaleFactor,
           maxLines: maxLines,
           style: TextStyle(
