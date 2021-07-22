@@ -41,7 +41,6 @@ dependencies:
   hive:
   hive_flutter:
   flutter_riverpod:
-  dio:
 
 
 dev_dependencies:

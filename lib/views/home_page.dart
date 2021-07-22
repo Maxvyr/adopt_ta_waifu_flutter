@@ -2,7 +2,7 @@ import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
-import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
@@ -28,8 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<Waifu>> _initList() async {
-    List<Waifu> list = [];
-    list = await CallApi().getWaifus();
+    List<Waifu> list = await CallWaifus().getWaifus();
     return list;
   }
 
@@ -50,7 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
           case ConnectionState.waiting:
             return LoadingPage();
           case ConnectionState.done:
-            List<Waifu> waifus = snapshot.data;
+            List<Waifu> waifus = [];
+            if (snapshot.data == null) {
+              print("et merde");
+            } else {
+              waifus = snapshot.data;
+            }
 
             return Scaffold(
               body: _body(

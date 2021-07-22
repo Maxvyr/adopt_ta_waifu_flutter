@@ -4,7 +4,7 @@ import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
-import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/models/Waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
   }
 
   Widget _imgCard(double heightTotal, double widthTotal) {
-    String imgLink = widget.waifus[index].sample;
+    String imgLink = widget.waifus[index].sample ?? "";
     double borderRadius = 25.0;
     return Card(
       shape: RoundedRectangleBorder(
