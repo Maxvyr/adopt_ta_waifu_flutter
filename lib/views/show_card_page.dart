@@ -75,10 +75,12 @@ class _ShowCardPageState extends State<ShowCardPage> {
       shadowColor: isDarkMode ? white : blueMain,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
-        child: myCacheImageNetwork(
-          imgLink,
-          widthTotal,
-          heightTotal,
+        child: InteractiveViewer(
+          child: myCacheImageNetwork(
+            imgLink,
+            widthTotal,
+            heightTotal,
+          ),
         ),
       ),
     );
