@@ -27,12 +27,7 @@ Next version use this package:
 
 ## API
 
-- [Konochan](https://konachan.com/)
 - [Yandere](https://yande.re/post)
-
-Next version use this api:
-
-- [Adopt ta Waifu back](https://github.com/Maxvyr/adopt_ta_waifu_back)
 
 ## Before
 
