@@ -78,16 +78,23 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        _topPage(heightTotal, widthTotal),
+        TopHomePage(),
         spacingH(height: heightTotal * 0.1),
-        _buttonsNext(waifus),
+        ButtonsNext(waifus),
       ],
     );
   }
 
-  Widget _topPage(double heightTotal, double widthTotal) {
-    double radiusImg = widthTotal * 0.1;
+}
 
+class TopHomePage extends StatelessWidget {
+  late final bool isDarkMode;
+
+  @override
+  Widget build(BuildContext context) {
+    var heightTotal = MediaQuery.of(context).size.height;
+    double radiusImg = MediaQuery.of(context).size.width * 0.1;
+    isDarkMode = isInDarkMode(context);
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -116,8 +123,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
+}
 
-  Widget _buttonsNext(List<Waifu> waifus) {
+
+class ButtonsNext extends StatelessWidget {
+  final List<Waifu> waifus;
+  late final bool isDarkMode;
+
+  ButtonsNext(this.waifus);
+
+  @override
+  Widget build(BuildContext context) {
+    isDarkMode = isInDarkMode(context);
+    
     Color txtColor = isDarkMode ? blueMain : white;
     Color backgroundColor = isDarkMode ? white : blueMain;
     return Row(
