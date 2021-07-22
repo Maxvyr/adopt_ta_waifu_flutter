@@ -1,15 +1,14 @@
 import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
-
 Widget myDividerLight() {
-  return Divider(
+  return const Divider(
     color: colorHint,
   );
 }
 
 Widget myDividerDark() {
-  return Divider(
+  return const Divider(
     height: 2,
     thickness: 2,
     color: backgroundDark,
@@ -17,7 +16,7 @@ Widget myDividerDark() {
 }
 
 Widget myDividerRed() {
-  return Divider(
+  return const Divider(
     color: red,
   );
 }

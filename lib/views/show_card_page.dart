@@ -4,7 +4,7 @@ import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
 import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +32,8 @@ class _ShowCardPageState extends State<ShowCardPage> {
 
   @override
   Widget build(BuildContext context) {
-    var heightTotal = MediaQuery.of(context).size.height;
-    var widthTotal = MediaQuery.of(context).size.width;
+    final double heightTotal = MediaQuery.of(context).size.height;
+    final double widthTotal = MediaQuery.of(context).size.width;
     isDarkMode = isInDarkMode(context);
 
     return Scaffold(
@@ -65,8 +65,8 @@ class _ShowCardPageState extends State<ShowCardPage> {
   }
 
   Widget _imgCard(double heightTotal, double widthTotal) {
-    String imgLink = widget.waifus[index].sample ?? "";
-    double borderRadius = 25.0;
+    final String imgLink = widget.waifus[index].sample ?? "";
+    const double borderRadius = 25.0;
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
@@ -88,7 +88,6 @@ class _ShowCardPageState extends State<ShowCardPage> {
 
   Widget _rowButton() {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _iconButtonCustom(
@@ -107,14 +106,14 @@ class _ShowCardPageState extends State<ShowCardPage> {
       {required bool isLike, required VoidCallback callback}) {
     return IconButton(
       onPressed: callback,
-      icon: isLike ? Icon(likeIcon) : Icon(dislikeIcon),
+      icon: isLike ? const Icon(likeIcon) : const Icon(dislikeIcon),
       iconSize: 70.0,
       color: isDarkMode ? white : blueMain,
     );
   }
 
   void _shareImg() async {
-    Waifu waifuLiked = widget.waifus[index];
+    final Waifu waifuLiked = widget.waifus[index];
     shareImg(waifuLiked);
     _animationLoading();
   }

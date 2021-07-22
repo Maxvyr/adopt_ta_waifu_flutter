@@ -47,3 +47,5 @@ linter:
     prefer_const_constructors_in_immutables: false
 
     prefer_equal_for_default_values: false
+
+    directives_ordering: false

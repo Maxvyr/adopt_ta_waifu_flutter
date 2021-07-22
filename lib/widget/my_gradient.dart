@@ -2,9 +2,9 @@ import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyGradient extends BoxDecoration {
-  static final FractionalOffset begin = FractionalOffset(0.0, 0.0);
-  static final FractionalOffset endHor = FractionalOffset(1.0, 0.0);
-  static final FractionalOffset endVer = FractionalOffset(0.0, 1.0);
+  static const FractionalOffset begin = FractionalOffset(0.0, 0.0);
+  static const FractionalOffset endHor = FractionalOffset(1.0, 0.0);
+  static const FractionalOffset endVer = FractionalOffset(0.0, 1.0);
 
   MyGradient({
     required Color startColor,
@@ -21,7 +21,6 @@ class MyGradient extends BoxDecoration {
             colors: [startColor, endColor],
             begin: begin,
             end: horizontal ? endHor : endVer,
-            tileMode: TileMode.clamp,
           ),
           border: Border.all(
             color: borderColor,

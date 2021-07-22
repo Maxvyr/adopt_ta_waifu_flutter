@@ -18,7 +18,7 @@ class MyAppBar extends AppBar {
           backgroundColor: isDarkMode ? white : blueMain,
           leading: IconButton(
             color: isDarkMode ? blueMain : white,
-            icon: Icon(
+            icon: const Icon(
               arrowBackAndroidIcon,
               size: 30.0,
             ),

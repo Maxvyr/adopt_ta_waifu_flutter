@@ -14,7 +14,7 @@ void main() {
   testWidgets('show Loading Page', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
-    var loading = find.byType(CircularProgressIndicator);
+    final loading = find.byType(CircularProgressIndicator);
     expect(loading, findsOneWidget);
   });
 }

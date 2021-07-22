@@ -9,12 +9,12 @@ import 'package:url_launcher/url_launcher.dart';
 import 'my_materials.dart';
 
 void openGooglePlay() async {
-  String url = "";
+  const String url = "";
   await canLaunch(url) ? await launch(url) : print("Impossible d'ouvrir l'url");
 }
 
 void openAppStore() async {
-  String url = "";
+  const url = "";
   await canLaunch(url) ? await launch(url) : print("Impossible d'ouvrir l'url");
 }
 
@@ -30,10 +30,10 @@ class ButtonSocialNetwork extends Padding {
               elevation: 0.0,
               primary: accent2,
               onPrimary: blueMain,
-              shadowColor: Color(0xff101735),
+              shadowColor: backgroundDark,
             ),
             onPressed: () => isAndroid ? openGooglePlay() : openAppStore(),
-            child: Container(
+            child: SizedBox(
               width: width >= 1000 ? width * 0.2 : 180,
               height: 90,
               child: Row(
@@ -47,7 +47,6 @@ class ButtonSocialNetwork extends Padding {
                     children: [
                       MyText(
                         data: strDwldOn,
-                        fontWeight: FontWeight.w400,
                       ),
                       MyText(
                         data: isAndroid ? strGooglePlay : strAppStore,
@@ -65,10 +64,10 @@ class ButtonSocialNetwork extends Padding {
 
 class MyButtonElevated extends SizedBox {
   MyButtonElevated({
-    double heightBt: 46,
-    double widthBt: 150,
     required String txtBt,
     required VoidCallback callback,
+    double heightBt: 46,
+    double widthBt: 150,
     Color txtColor: white,
     Color backgroundColor: blueMain,
     FontWeight fontWeight: FontWeight.w700,
@@ -79,7 +78,7 @@ class MyButtonElevated extends SizedBox {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(22),
                 ),
@@ -96,7 +95,10 @@ class MyButtonElevated extends SizedBox {
                   fontWeight: fontWeight,
                   color: txtColor,
                 ),
-                addIcon ? Icon(arrowNextIcon) : SizedBox()
+                Visibility(
+                  visible: addIcon,
+                  child: const Icon(arrowNextIcon),
+                ),
               ],
             ),
           ),
@@ -104,11 +106,11 @@ class MyButtonElevated extends SizedBox {
 }
 
 class MyButtonFlat extends SizedBox {
-  MyButtonFlat(
-      {double heightBt: 46,
-      double widthBt: 216,
+  MyButtonFlat({
       required String txtBt,
       required VoidCallback callback,
+      double heightBt: 46,
+      double widthBt: 216,
       Color color: red,
       FontWeight fontWeight: FontWeight.w700,
       double fontSize: 18.0})
@@ -117,7 +119,7 @@ class MyButtonFlat extends SizedBox {
           width: widthBt,
           child: TextButton(
             style: TextButton.styleFrom(
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(22),
                 ),
@@ -136,10 +138,10 @@ class MyButtonFlat extends SizedBox {
 
 class MyButtonFlatWithBorder extends SizedBox {
   MyButtonFlatWithBorder({
-    double heightBt: 46,
-    double widthBt: 216,
     required String txtBt,
     required VoidCallback callback,
+    double heightBt: 46,
+    double widthBt: 216,
     Color color: white,
     FontWeight fontWeight: FontWeight.w700,
   }) : super(
@@ -151,9 +153,8 @@ class MyButtonFlatWithBorder extends SizedBox {
                 side: BorderSide(
                   color: color,
                   width: 2,
-                  style: BorderStyle.solid,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(22),
                 ),
               ),
