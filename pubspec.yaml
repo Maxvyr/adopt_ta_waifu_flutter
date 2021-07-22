@@ -21,36 +21,32 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  cached_network_image:
+  connectivity:
+  cupertino_icons:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-  flutter_svg:
-  url_launcher:
-  share_plus:
-  http:
-  path_provider:
   flutter_easyloading:
-  cached_network_image:
-  # connectivity_plus:
-  connectivity:
-  provider:
+  flutter_riverpod:
+  flutter_svg:
   hive:
   hive_flutter:
-  flutter_riverpod:
+  http:
+  path_provider:
+  provider:
+  share_plus:
+  url_launcher:
+  # connectivity_plus:
 
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  
-  # https://pub.dev/packages/flutter_native_splash
-  flutter_native_splash:
   # https://pub.dev/packages/flutter_launcher_icons
   flutter_launcher_icons:
+  # https://pub.dev/packages/flutter_native_splash
+  flutter_native_splash:
+  flutter_test:
+    sdk: flutter   
+  lint:
 
 flutter_icons:
   image_path: "assets/img/chibi_waifu.jpeg"

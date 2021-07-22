@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart';
 
 Future<File> fileFromImageUrl(String imgUrl, String author) async {
   // file name
-  String fileName = "author_$author.jpeg";
+  final String fileName = "author_$author.jpeg";
   // get for return image bytes
   final reponse = await http.get(Uri.parse(imgUrl));
   // recover app directory

@@ -7,15 +7,15 @@ class NoNetworkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //variable
-    var widthTotal = MediaQuery.of(context).size.width;
-    var heightTotal = MediaQuery.of(context).size.height;
+    final widthTotal = MediaQuery.of(context).size.width;
+    final heightTotal = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SafeArea(
         child: Container(
           color: blueMain,
           child: Center(
-            child: Container(
+            child: SizedBox(
                 width: widthTotal * 0.9,
                 height: heightTotal * 0.9,
                 child: Column(

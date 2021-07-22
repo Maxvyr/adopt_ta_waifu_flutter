@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color lightRed = Color(0xffd64d31);
 const Color blue = Colors.blue;
-const Color blueMain = Color(0XFF013E73);
+const Color blueMain = Color(0xff013e73);
 const Color green = Colors.green;
 const Color lime = Colors.lime;
 const Color yellow = Colors.yellow;
@@ -71,8 +71,8 @@ const MaterialColor themeColor = MaterialColor(
 );
 
 MaterialColor createMaterialColor(Color color) {
-  List<double> strengths = [.05];
-  Map<int, Color> swatch = {};
+  final List<double> strengths = [.05];
+  final Map<int, Color> swatch = {};
   final int r = color.red, g = color.green, b = color.blue;
 
   for (int i = 1; i < 10; i++) {

@@ -14,8 +14,8 @@ Widget myCacheImageNetwork(
     height: heightTotal * 0.7,
     placeholder: (context, url) => placeHolderWidget(),
     errorWidget: (context, url, error) {
-      debugPrint(error);
-      return Icon(errorIcon);
+      debugPrint(error as String);
+      return const Icon(errorIcon);
     },
     fit: BoxFit.contain,
     fadeInCurve: Curves.fastOutSlowIn,
@@ -31,7 +31,7 @@ Widget placeHolderWidget() {
         placeHolderImg,
         fit: BoxFit.cover,
       ),
-      Container(
+      const SizedBox(
         height: 100,
         width: 100,
         child: CircularProgressIndicator(),

@@ -1,6 +1,6 @@
 import 'dart:convert' as cnv;
 
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,7 +9,7 @@ class CallWaifus {
   final String _urlGelbooru = "https://gelbooru-xsd8bjco8ukx.runkit.sh/posts";
 
   Future<List<dynamic>> _requestGetFromList(String url) async {
-    Uri uriApi = Uri.parse(url);
+    final Uri uriApi = Uri.parse(url);
     print("go");
     print("uri => $uriApi");
 
@@ -19,7 +19,7 @@ class CallWaifus {
       );
       print(res.statusCode);
       if (res.statusCode == 200) {
-        List<dynamic> body = cnv.jsonDecode(res.body);
+        final List<dynamic> body = cnv.jsonDecode(res.body) as List<dynamic>;
         print("BODY => $body");
         return body;
       } else if (res.statusCode == 404) {
@@ -36,7 +36,7 @@ class CallWaifus {
   }
 
   Future<List<dynamic>> _requestGetFromMap(String url) async {
-    Uri uriApi = Uri.parse(url);
+    final Uri uriApi = Uri.parse(url);
     print("go");
     print("uri => $uriApi");
 
@@ -46,8 +46,8 @@ class CallWaifus {
       );
       print(res.statusCode);
       if (res.statusCode == 200) {
-        Map<String, dynamic> body = cnv.json.decode(res.body);
-        List<dynamic> list = body["posts"];
+        final Map<String, dynamic> body = cnv.json.decode(res.body) as Map<String, dynamic>;
+        final List<dynamic> list = body["posts"] as List<dynamic>;
         return list;
       } else if (res.statusCode == 404) {
         print("${res.statusCode}");

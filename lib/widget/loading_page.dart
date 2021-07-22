@@ -5,7 +5,7 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //variable
-    var widthTotal = MediaQuery.of(context).size.width;
+    final widthTotal = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SafeArea(
@@ -16,7 +16,7 @@ class LoadingPage extends StatelessWidget {
               width: widthTotal * 0.3,
               height: widthTotal * 0.3,
               color: blueMain,
-              child: CircularProgressIndicator(
+              child: const CircularProgressIndicator(
                 color: white,
               ),
             ),
@@ -31,7 +31,7 @@ class LoadingPageError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //variable
-    var widthTotal = MediaQuery.of(context).size.width;
+    final widthTotal = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SafeArea(
@@ -42,7 +42,7 @@ class LoadingPageError extends StatelessWidget {
               width: widthTotal * 0.3,
               height: widthTotal * 0.3,
               color: blueMain,
-              child: CircularProgressIndicator(
+              child: const CircularProgressIndicator(
                 color: red,
               ),
             ),

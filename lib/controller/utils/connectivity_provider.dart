@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ConnectivityProvider with ChangeNotifier {
-  Connectivity _connectivity = Connectivity();
+  final Connectivity _connectivity = Connectivity();
   bool _isOnline = true;
   bool get isOnline => _isOnline;
 
-  startMonitoring() async {
+  void startMonitoring() async {
     await initConnectivity();
     _connectivity.onConnectivityChanged.listen((result) async {
       if (result == ConnectivityResult.none) {
@@ -29,7 +29,7 @@ class ConnectivityProvider with ChangeNotifier {
 
   Future<void> initConnectivity() async {
     try {
-      ConnectivityResult connectivityResult =
+      final ConnectivityResult connectivityResult =
           await _connectivity.checkConnectivity();
       if (connectivityResult == ConnectivityResult.mobile ||
           connectivityResult == ConnectivityResult.wifi) {

@@ -11,7 +11,7 @@ BoxDecoration myBoxDecoration() {
 }
 
 LinearGradient myGradient() {
-  return LinearGradient(
+  return const LinearGradient(
     colors: [red, accentDark],
     begin: Alignment(0, 1),
     end: Alignment(0.5, 0),
@@ -20,7 +20,7 @@ LinearGradient myGradient() {
 
 void navigationBarBlanc() {
   print("navigationBarBlanc");
-  Future.delayed(Duration(milliseconds: 1), () {
+  Future.delayed(const Duration(milliseconds: 1), () {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent,
       // status bar color
@@ -38,7 +38,7 @@ void navigationBarBlanc() {
 
 void navigationBarNoir() {
   print("navigationBarNoir");
-  Future.delayed(Duration(milliseconds: 1), () {
+  Future.delayed(const Duration(milliseconds: 1), () {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
@@ -50,7 +50,7 @@ void navigationBarNoir() {
 
 void navigationBarTransparent() {
   print("navigationBarTransparent");
-  Future.delayed(Duration(milliseconds: 1), () {
+  Future.delayed(const Duration(milliseconds: 1), () {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: Colors.transparent, // status bar color
       systemNavigationBarColor: black, // navigation bar color
@@ -61,9 +61,9 @@ void navigationBarTransparent() {
   });
 }
 
-paddingText(String txt) {
+Widget paddingText(String txt) {
   return Padding(
-    padding: EdgeInsets.all(15.0),
+    padding: const EdgeInsets.all(15.0),
     child: MyText(
       data: txt,
       textScaleFactor: 0.8,

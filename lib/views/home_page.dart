@@ -2,7 +2,7 @@ import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/navigation.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
-import 'package:adopt_ta_waifu/models/Waifu.dart';
+import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
@@ -28,19 +28,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<Waifu>> _initList() async {
-    List<Waifu> list = await CallWaifus().getWaifus();
+    final List<Waifu> list = await CallWaifus().getWaifus();
     return list;
   }
 
   @override
   Widget build(BuildContext context) {
-    var heightTotal = MediaQuery.of(context).size.height;
-    var widthTotal = MediaQuery.of(context).size.width;
+    final double heightTotal = MediaQuery.of(context).size.height;
+    final double widthTotal = MediaQuery.of(context).size.width;
     isDarkMode = isInDarkMode(context);
 
     return FutureBuilder(
       future: _waifus,
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<List<Waifu>> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
             return LoadingPage();
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (snapshot.data == null) {
               print("et merde");
             } else {
-              waifus = snapshot.data;
+              waifus = snapshot.data!;
             }
 
             return Scaffold(
@@ -76,18 +76,24 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Waifu> waifus,
   ) {
     return Column(
-      mainAxisSize: MainAxisSize.max,
       children: [
-        _topPage(heightTotal, widthTotal),
+        TopHomePage(),
         spacingH(height: heightTotal * 0.1),
-        _buttonsNext(waifus),
+        ButtonsNext(waifus),
       ],
     );
   }
 
-  Widget _topPage(double heightTotal, double widthTotal) {
-    double radiusImg = widthTotal * 0.1;
+}
 
+class TopHomePage extends StatelessWidget {
+  late final bool isDarkMode;
+
+  @override
+  Widget build(BuildContext context) {
+    final double heightTotal = MediaQuery.of(context).size.height;
+    final double radiusImg = MediaQuery.of(context).size.width * 0.1;
+    isDarkMode = isInDarkMode(context);
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -106,9 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ClipOval(
           child: Container(
             color: isDarkMode ? dark : white,
-            padding: EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(5.0),
             child: CircleAvatar(
-              backgroundImage: AssetImage(logoApp),
+              backgroundImage: const AssetImage(logoApp),
               radius: radiusImg,
             ),
           ),
@@ -116,12 +122,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
+}
 
-  Widget _buttonsNext(List<Waifu> waifus) {
-    Color txtColor = isDarkMode ? blueMain : white;
-    Color backgroundColor = isDarkMode ? white : blueMain;
+
+class ButtonsNext extends StatelessWidget {
+  final List<Waifu> waifus;
+  late final bool isDarkMode;
+
+  // ignore: prefer_const_constructors_in_immutables
+  ButtonsNext(this.waifus);
+
+  @override
+  Widget build(BuildContext context) {
+    isDarkMode = isInDarkMode(context);
+    final Color txtColor = isDarkMode ? blueMain : white;
+    final Color backgroundColor = isDarkMode ? white : blueMain;
+
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         MyButtonElevated(
