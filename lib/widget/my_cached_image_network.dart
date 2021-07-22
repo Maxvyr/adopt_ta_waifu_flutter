@@ -13,7 +13,10 @@ Widget myCacheImageNetwork(
     width: widthTotal * 0.9,
     height: heightTotal * 0.7,
     placeholder: (context, url) => placeHolderWidget(),
-    errorWidget: (context, url, error) => Icon(errorIcon),
+    errorWidget: (context, url, error) {
+      debugPrint(error);
+      return Icon(errorIcon);
+    },
     fit: BoxFit.contain,
     fadeInCurve: Curves.fastOutSlowIn,
     fadeOutCurve: Curves.elasticOut,

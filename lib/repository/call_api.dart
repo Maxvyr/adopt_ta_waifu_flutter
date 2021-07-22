@@ -78,19 +78,17 @@ class CallWaifus {
     final List<Waifu> gelbooruList = [];
     listGelbooru.forEach((element) {
       final Waifu waifu = Waifu.fromGelbooru(element);
-      print(waifu.previewImg);
       gelbooruList.add(waifu);
     });
     return gelbooruList;
   }
 
   Future<List<Waifu>> getWaifus() async {
-    // final List<Waifu> waifusYandere;
+    final List<Waifu> waifusYandere;
     final List<Waifu> waifusGelbooru;
-    // waifusYandere = await getYandere();
+    waifusYandere = await getYandere();
     waifusGelbooru = await getGelbooru();
 
-    return waifusGelbooru;
-    // return waifusKonochan + waifusYandere + waifusGelbooru;
+    return waifusYandere + waifusGelbooru;
   }
 }
