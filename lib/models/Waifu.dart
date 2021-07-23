@@ -9,6 +9,14 @@ class Waifu {
     required this.source,
   });
 
+  Waifu.fromKonachan(dynamic json) {
+    author = json["author"] as String?;
+    file = json["file_url"] as String?;
+    sample = json["sample_url"] as String?;
+    previewImg = json["preview_url"] as String?;
+    source = json["source"] as String?;
+  }
+
   Waifu.fromYandere(dynamic json) {
     author = json["author"] as String?;
     file = json["file_url"] as String?;

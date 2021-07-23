@@ -2,6 +2,7 @@ import 'dart:convert' as cnv;
 
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class CallWaifus {
@@ -10,8 +11,7 @@ class CallWaifus {
 
   Future<List<dynamic>> _requestGetFromList(String url) async {
     final Uri uriApi = Uri.parse(url);
-    print("go");
-    print("uri => $uriApi");
+    debugPrint("uri for list return => $url");
 
     try {
       final http.Response res = await http.get(
@@ -20,25 +20,24 @@ class CallWaifus {
       print(res.statusCode);
       if (res.statusCode == 200) {
         final List<dynamic> body = cnv.jsonDecode(res.body) as List<dynamic>;
-        print("BODY => $body");
+        debugPrint("BODY => $body");
         return body;
       } else if (res.statusCode == 404) {
-        print("${res.statusCode}");
+        debugPrint("${res.statusCode}");
         return DummyWaifuList().getWaifus();
       } else {
-        print("euh => ${res.statusCode}");
+        debugPrint("euh => ${res.statusCode}");
         return [res.statusCode];
       }
     } catch (e) {
-      print("error => $e");
+      debugPrint("error => $e");
       return ["ERROR"];
     }
   }
 
   Future<List<dynamic>> _requestGetFromMap(String url) async {
     final Uri uriApi = Uri.parse(url);
-    print("go");
-    print("uri => $uriApi");
+    debugPrint("uri for map return => $url");
 
     try {
       final http.Response res = await http.get(
@@ -46,18 +45,19 @@ class CallWaifus {
       );
       print(res.statusCode);
       if (res.statusCode == 200) {
-        final Map<String, dynamic> body = cnv.json.decode(res.body) as Map<String, dynamic>;
+        final Map<String, dynamic> body =
+            cnv.json.decode(res.body) as Map<String, dynamic>;
         final List<dynamic> list = body["posts"] as List<dynamic>;
         return list;
       } else if (res.statusCode == 404) {
-        print("${res.statusCode}");
+        debugPrint("${res.statusCode}");
         return DummyWaifuList().getWaifus();
       } else {
-        print("euh => ${res.statusCode}");
+        debugPrint("euh => ${res.statusCode}");
         return [res.statusCode];
       }
     } catch (e) {
-      print("error => $e");
+      debugPrint("error => $e");
       return ["ERROR"];
     }
   }
@@ -73,6 +73,17 @@ class CallWaifus {
     return yandereList;
   }
 
+  Future<List<Waifu>> getKonachan() async {
+    final List<dynamic> listKonachan = await _requestGetFromList(_urlYandere);
+    final List<Waifu> konachanList = [];
+    listKonachan.forEach((element) {
+      final Waifu waifu = Waifu.fromKonachan(element);
+      konachanList.add(waifu);
+    });
+
+    return konachanList;
+  }
+
   Future<List<Waifu>> getGelbooru() async {
     final List<dynamic> listGelbooru = await _requestGetFromMap(_urlGelbooru);
     final List<Waifu> gelbooruList = [];
@@ -85,10 +96,12 @@ class CallWaifus {
 
   Future<List<Waifu>> getWaifus() async {
     final List<Waifu> waifusYandere;
+    final List<Waifu> waifusKonachan;
     final List<Waifu> waifusGelbooru;
     waifusYandere = await getYandere();
+    waifusKonachan = await getKonachan();
     waifusGelbooru = await getGelbooru();
 
-    return waifusYandere + waifusGelbooru;
+    return waifusYandere + waifusKonachan + waifusGelbooru;
   }
 }
