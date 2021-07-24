@@ -7,8 +7,10 @@ import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
 import 'package:adopt_ta_waifu/widget/my_materials.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ShowCardPage extends StatefulWidget {
   final String title;
@@ -114,8 +116,12 @@ class _ShowCardPageState extends State<ShowCardPage> {
 
   void _shareImg() async {
     final Waifu waifuLiked = widget.waifus[index];
-    shareImg(waifuLiked);
-    _animationLoading();
+    if (kIsWeb) {
+      openImgLink(waifuLiked);
+    } else {
+      shareImg(waifuLiked);
+      _animationLoading();
+    }
   }
 
   void _nextPage() {

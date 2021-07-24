@@ -5,6 +5,7 @@ import 'package:adopt_ta_waifu/controller/utils/convert_url_to_file.dart';
 import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void shareImg(Waifu waifu) {
   File imgFile;
@@ -19,4 +20,17 @@ void shareImg(Waifu waifu) {
 
 void shareText() {
   Share.share(strShareAppText);
+}
+
+void openImgLink(Waifu waifu) async {
+  final linkImg = waifu.file!;
+  if (await canLaunch(linkImg)) {
+    await launch(
+      linkImg,
+      forceSafariVC: false,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    );
+  } else {
+    throw 'Could not launch $linkImg';
+  }
 }
