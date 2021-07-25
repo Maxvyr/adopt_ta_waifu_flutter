@@ -104,7 +104,7 @@ class TopHomePage extends StatelessWidget {
               height: heightTotal * 0.5,
               fit: BoxFit.cover,
             ),
-            SizedBox(
+            const SizedBox(
               height: radiusImg,
             )
           ],
@@ -113,8 +113,8 @@ class TopHomePage extends StatelessWidget {
           child: Container(
             color: isDarkMode ? dark : white,
             padding: const EdgeInsets.all(5.0),
-            child: CircleAvatar(
-              backgroundImage: const AssetImage(logoApp),
+            child: const CircleAvatar(
+              backgroundImage: AssetImage(logoApp),
               radius: radiusImg,
             ),
           ),
