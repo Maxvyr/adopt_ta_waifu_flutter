@@ -18,10 +18,9 @@ class CallWaifus {
       final http.Response res = await http.get(
         uriApi,
       );
-      print(res.statusCode);
       if (res.statusCode == 200) {
+        debugPrint("${res.statusCode} from List");
         final List<dynamic> body = cnv.jsonDecode(res.body) as List<dynamic>;
-        debugPrint("BODY => $body");
         return body;
       } else if (res.statusCode == 404) {
         debugPrint("${res.statusCode}");
@@ -44,8 +43,8 @@ class CallWaifus {
       final http.Response res = await http.get(
         uriApi,
       );
-      print(res.statusCode);
       if (res.statusCode == 200) {
+        debugPrint("${res.statusCode} from Map");
         final Map<String, dynamic> body =
             cnv.json.decode(res.body) as Map<String, dynamic>;
         final List<dynamic> list = body["posts"] as List<dynamic>;
@@ -86,6 +85,7 @@ class CallWaifus {
     return konachanList;
   }
 
+// FIX ME -> error ImageCodecException
   Future<List<Waifu>> getGelbooru() async {
     final List<dynamic> listGelbooru = await _requestGetFromMap(_urlGelbooru);
     final List<Waifu> gelbooruList = [];
@@ -99,11 +99,11 @@ class CallWaifus {
   Future<List<Waifu>> getWaifus() async {
     final List<Waifu> waifusYandere;
     // final List<Waifu> waifusKonachan;
-    final List<Waifu> waifusGelbooru;
+    // final List<Waifu> waifusGelbooru;
     waifusYandere = await getYandere();
     // waifusKonachan = await getKonachan();
-    waifusGelbooru = await getGelbooru();
+    // waifusGelbooru = await getGelbooru();
 
-    return waifusYandere + waifusGelbooru /*+ waifusKonachan */;
+    return waifusYandere /* + waifusGelbooru + waifusKonachan */;
   }
 }
