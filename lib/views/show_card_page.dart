@@ -69,6 +69,9 @@ class _ShowCardPageState extends State<ShowCardPage> {
   Widget _imgCard(double heightTotal, double widthTotal) {
     final String imgLink = widget.waifus[index].sample ?? "";
     const double borderRadius = 25.0;
+
+    print(imgLink);
+    print("------------------------------");
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),

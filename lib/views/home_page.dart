@@ -6,6 +6,7 @@ import 'package:adopt_ta_waifu/models/waifu.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
+import 'package:flutter/foundation.dart';
 
 import '../controller/constant/colors.dart';
 import '../controller/constant/images.dart';
@@ -83,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
-
 }
 
 class TopHomePage extends StatelessWidget {
@@ -91,8 +91,8 @@ class TopHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double heightTotal = MediaQuery.of(context).size.height;
-    final double radiusImg = MediaQuery.of(context).size.width * 0.1;
+    final heightTotal = MediaQuery.of(context).size.height;
+    const radiusImg = 80.0;
     isDarkMode = isInDarkMode(context);
     return Stack(
       alignment: Alignment.bottomCenter,
@@ -104,7 +104,7 @@ class TopHomePage extends StatelessWidget {
               height: heightTotal * 0.5,
               fit: BoxFit.cover,
             ),
-            SizedBox(
+            const SizedBox(
               height: radiusImg,
             )
           ],
@@ -113,8 +113,8 @@ class TopHomePage extends StatelessWidget {
           child: Container(
             color: isDarkMode ? dark : white,
             padding: const EdgeInsets.all(5.0),
-            child: CircleAvatar(
-              backgroundImage: const AssetImage(logoApp),
+            child: const CircleAvatar(
+              backgroundImage: AssetImage(logoApp),
               radius: radiusImg,
             ),
           ),
@@ -123,7 +123,6 @@ class TopHomePage extends StatelessWidget {
     );
   }
 }
-
 
 class ButtonsNext extends StatelessWidget {
   final List<Waifu> waifus;
