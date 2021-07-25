@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 class CallWaifus {
   final String _urlYandere = "https://yande.re/post.json";
+  final String _urlKonachan = "https://hello.maxvyr.workers.dev/";
   final String _urlGelbooru = "https://gelbooru-xsd8bjco8ukx.runkit.sh/posts";
 
   Future<List<dynamic>> _requestGetFromList(String url) async {
@@ -73,8 +74,9 @@ class CallWaifus {
     return yandereList;
   }
 
+// FIX ME -> server code
   Future<List<Waifu>> getKonachan() async {
-    final List<dynamic> listKonachan = await _requestGetFromList(_urlYandere);
+    final List<dynamic> listKonachan = await _requestGetFromList(_urlKonachan);
     final List<Waifu> konachanList = [];
     listKonachan.forEach((element) {
       final Waifu waifu = Waifu.fromKonachan(element);
@@ -96,12 +98,12 @@ class CallWaifus {
 
   Future<List<Waifu>> getWaifus() async {
     final List<Waifu> waifusYandere;
-    final List<Waifu> waifusKonachan;
+    // final List<Waifu> waifusKonachan;
     final List<Waifu> waifusGelbooru;
     waifusYandere = await getYandere();
-    waifusKonachan = await getKonachan();
+    // waifusKonachan = await getKonachan();
     waifusGelbooru = await getGelbooru();
 
-    return waifusYandere + waifusKonachan + waifusGelbooru;
+    return waifusYandere + waifusGelbooru /*+ waifusKonachan */;
   }
 }
