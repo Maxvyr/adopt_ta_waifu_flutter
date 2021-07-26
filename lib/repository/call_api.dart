@@ -73,7 +73,6 @@ class CallWaifus {
     return yandereList;
   }
 
-// FIX ME -> server code
   Future<List<Waifu>> getKonachan() async {
     final List<dynamic> listKonachan = await _requestGetFromList(_urlKonachan);
     final List<Waifu> konachanList = [];
@@ -85,7 +84,6 @@ class CallWaifus {
     return konachanList;
   }
 
-// FIX ME -> error ImageCodecException
   Future<List<Waifu>> getGelbooru() async {
     final List<dynamic> listGelbooru = await _requestGetFromMap(_urlGelbooru);
     final List<Waifu> gelbooruList = [];
@@ -98,12 +96,12 @@ class CallWaifus {
 
   Future<List<Waifu>> getWaifus() async {
     final List<Waifu> waifusYandere;
-    // final List<Waifu> waifusKonachan;
-    // final List<Waifu> waifusGelbooru;
+    final List<Waifu> waifusKonachan;
+    final List<Waifu> waifusGelbooru;
     waifusYandere = await getYandere();
-    // waifusKonachan = await getKonachan();
-    // waifusGelbooru = await getGelbooru();
+    waifusKonachan = await getKonachan();
+    waifusGelbooru = await getGelbooru();
 
-    return waifusYandere /* + waifusGelbooru + waifusKonachan */;
+    return waifusYandere + waifusGelbooru + waifusKonachan;
   }
 }
