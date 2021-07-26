@@ -4,6 +4,13 @@
 
 Show image waifu or husbando and if you like this image you can share it with your friend
 
+web version (under development) : https://adopt-ta-waifu.web.app/#/(https://adopt-ta-waifu.web.app/#/)
+mobile version :
+
+```zsh
+git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
+```
+
 ## Framework
 
 - [Flutter](https://flutter.dev/)
