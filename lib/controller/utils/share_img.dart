@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/convert_url_to_file.dart';
-import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';

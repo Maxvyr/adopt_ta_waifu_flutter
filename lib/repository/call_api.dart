@@ -1,6 +1,6 @@
 import 'dart:convert' as cnv;
 
-import 'package:adopt_ta_waifu/models/waifu.dart';
+import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:adopt_ta_waifu/repository/dummy_waifu_list.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
