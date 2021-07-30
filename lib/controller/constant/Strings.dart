@@ -19,3 +19,7 @@ const String strDelete = "Supprimer";
 const String strConfirm = "Confirmation";
 const String strValidate = "Valider";
 const String strNoNetwork = "Probléme de réseau veuillez vérifier votre connection";
+
+// Key
+const  String keyWaifuBt = "Waifu Button";
+const  String keyHusbandoBt = "Husbando Button";

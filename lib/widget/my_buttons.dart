@@ -66,6 +66,7 @@ class MyButtonElevated extends SizedBox {
   MyButtonElevated({
     required String txtBt,
     required VoidCallback callback,
+    required Key key,
     double heightBt: 46,
     double widthBt: 150,
     Color txtColor: white,
@@ -73,6 +74,7 @@ class MyButtonElevated extends SizedBox {
     FontWeight fontWeight: FontWeight.w700,
     bool addIcon: false,
   }) : super(
+          key: key,
           height: heightBt,
           width: widthBt,
           child: ElevatedButton(
@@ -106,8 +108,8 @@ class MyButtonElevated extends SizedBox {
 }
 
 class MyButtonFlat extends SizedBox {
-  MyButtonFlat({
-      required String txtBt,
+  MyButtonFlat(
+      {required String txtBt,
       required VoidCallback callback,
       double heightBt: 46,
       double widthBt: 216,

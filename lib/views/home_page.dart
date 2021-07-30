@@ -6,7 +6,6 @@ import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
-import 'package:flutter/foundation.dart';
 
 import '../controller/constant/colors.dart';
 import '../controller/constant/images.dart';
@@ -52,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
           case ConnectionState.done:
             List<Waifu> waifus = [];
             if (snapshot.data == null) {
-              print("et merde");
             } else {
               waifus = snapshot.data!;
             }
@@ -143,6 +141,7 @@ class ButtonsNext extends StatelessWidget {
         MyButtonElevated(
           txtBt: strWaifu,
           txtColor: txtColor,
+          key: const Key(keyWaifuBt),
           backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
@@ -155,6 +154,7 @@ class ButtonsNext extends StatelessWidget {
         MyButtonElevated(
           txtBt: strHusbando,
           txtColor: txtColor,
+          key: const Key(keyHusbandoBt),
           backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
