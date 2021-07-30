@@ -51,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
           case ConnectionState.done:
             List<Waifu> waifus = [];
             if (snapshot.data == null) {
-              print("et merde");
             } else {
               waifus = snapshot.data!;
             }
@@ -142,6 +141,7 @@ class ButtonsNext extends StatelessWidget {
         MyButtonElevated(
           txtBt: strWaifu,
           txtColor: txtColor,
+          key: const Key(keyWaifuBt),
           backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
@@ -154,6 +154,7 @@ class ButtonsNext extends StatelessWidget {
         MyButtonElevated(
           txtBt: strHusbando,
           txtColor: txtColor,
+          key: const Key(keyHusbandoBt),
           backgroundColor: backgroundColor,
           callback: () => animationPage(
             context,
