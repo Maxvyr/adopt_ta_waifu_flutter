@@ -6,7 +6,6 @@ import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
-import 'package:flutter/foundation.dart';
 
 import '../controller/constant/colors.dart';
 import '../controller/constant/images.dart';
