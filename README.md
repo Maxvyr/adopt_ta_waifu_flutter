@@ -28,14 +28,19 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 - [connectivity](https://pub.dev/packages/connectivity)
 - [provider](https://pub.dev/packages/provider)
+_ [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
+_ [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
 
-Next version use this package:
+
+### Next version :
 
 - change [connectivity](https://pub.dev/packages/connectivity) by [connectivity_plus](https://pub.dev/packages/connectivity_plus)
 
 ## API
 
+- [Konachan](https://konachan.com/post)
 - [Yandere](https://yande.re/post)
+- [Gelbooru](https://gelbooru.com/index.php?page=post&s=list&tags=all)
 
 ## Before
 
