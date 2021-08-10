@@ -10,12 +10,12 @@ import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ShowCardPage extends StatefulWidget {
   final String title;
   final List<Waifu> waifus;
-  ShowCardPage(this.title, this.waifus);
+  final Function({Never returnValue}) backAppBar;
+  ShowCardPage(this.title, this.backAppBar, this.waifus);
 
   @override
   _ShowCardPageState createState() => _ShowCardPageState();
@@ -43,6 +43,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
         title: widget.title,
         context: context,
         isDarkMode: isDarkMode,
+        onPressed: widget.backAppBar,
       ),
       body: _body(
         heightTotal,

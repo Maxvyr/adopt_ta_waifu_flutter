@@ -6,6 +6,7 @@ import 'package:adopt_ta_waifu/repository/call_api.dart';
 import 'package:adopt_ta_waifu/views/show_card_page.dart';
 import 'package:adopt_ta_waifu/views/coming_soon.dart';
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 
 import '../controller/constant/colors.dart';
 import '../controller/constant/images.dart';
@@ -152,11 +153,13 @@ class ButtonsNext extends StatelessWidget {
               key: const Key(keyWaifuBt),
               backgroundColor: backgroundColor,
               callback: openContainer,
+              heightBt: kIsWeb ? 100 : 46,
             );
           },
           openBuilder: (_, closeContainer) {
             return ShowCardPage(
               strWaifu,
+              closeContainer,
               waifus,
             );
           },
@@ -175,6 +178,7 @@ class ButtonsNext extends StatelessWidget {
               key: const Key(keyHusbandoBt),
               backgroundColor: backgroundColor,
               callback: openContainer,
+              heightBt: kIsWeb ? 100 : 46,
             );
           },
           openBuilder: (_, closeContainer) {
