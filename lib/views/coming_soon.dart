@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class ComingSoon extends StatelessWidget {
   final String title;
+  final Function({Never returnValue}) backAppBar;
 
-  ComingSoon(this.title);
+  ComingSoon(this.title, this.backAppBar);
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,7 @@ class ComingSoon extends StatelessWidget {
       appBar: MyAppBar(
         title: title,
         context: context,
+        onPressed: backAppBar,
       ),
       body: Center(
         child: MyText(

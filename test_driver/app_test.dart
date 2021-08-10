@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';

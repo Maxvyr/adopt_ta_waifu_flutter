@@ -67,7 +67,7 @@ class MyButtonElevated extends SizedBox {
     required String txtBt,
     required VoidCallback callback,
     required Key key,
-    double heightBt: 46,
+    double heightBt: 100,
     double widthBt: 150,
     Color txtColor: white,
     Color backgroundColor: blueMain,
