@@ -9,6 +9,7 @@ class MyAppBar extends AppBar {
     required String title,
     required BuildContext context,
     bool isDarkMode = false,
+    Function()? onPressed,
   }) : super(
           title: MyText(
             data: title,
@@ -22,7 +23,7 @@ class MyAppBar extends AppBar {
               arrowBackAndroidIcon,
               size: 30.0,
             ),
-            onPressed: () => popPage(context),
+            onPressed: onPressed ?? () => popPage(context),
           ),
         );
 }

@@ -30,6 +30,7 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 - [provider](https://pub.dev/packages/provider)
 _ [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
 _ [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+_ [animations](https://pub.dev/packages/animations)
 
 
 ### Next version :
