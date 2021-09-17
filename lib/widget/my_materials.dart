@@ -13,6 +13,5 @@ export 'my_padding.dart';
 export 'my_single_child_scroll_view.dart';
 export 'my_text.dart';
 export 'spacing.dart';
-export 'widget_gen.dart';
 export 'my_app_bar.dart';
 export 'no_network_page.dart';
