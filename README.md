@@ -1,6 +1,7 @@
 # ADOPT TA WAIFU WEB APP
 
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A72UVP8)
 
 Show image waifu or husbando and if you like this image you can share it with your friend
 
@@ -28,9 +29,9 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 - [connectivity](https://pub.dev/packages/connectivity)
 - [provider](https://pub.dev/packages/provider)
-_ [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
-_ [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
-_ [animations](https://pub.dev/packages/animations)
+- [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
+- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+- [animations](https://pub.dev/packages/animations)
 
 
 ### Next version :
@@ -51,10 +52,6 @@ _ [animations](https://pub.dev/packages/animations)
 ## Pull Request
 
 - If you want to help for add new API or other, you are welcome ;)
-
-## Tips
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A72UVP8)
 
 ## Crypto Tips(ETH)
 
