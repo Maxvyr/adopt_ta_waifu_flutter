@@ -29,7 +29,6 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 - [connectivity](https://pub.dev/packages/connectivity)
 - [provider](https://pub.dev/packages/provider)
-- [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
 - [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
 - [animations](https://pub.dev/packages/animations)
 

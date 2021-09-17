@@ -28,10 +28,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_easyloading:
-  flutter_riverpod:
   flutter_svg:
-  hive:
-  hive_flutter:
   http:
   path_provider:
   provider:
