@@ -54,9 +54,9 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 
 - If you want to help for add new API or other, you are welcome ;)
 
-## Crypto Tips(ETH)
+## Crypto Tips
 
-![https://i.imgur.com/4bS8l7R.png](https://i.imgur.com/4bS8l7R.png)
+![https://i.imgur.com/4bS8l7R.png](https://i.imgur.com/o7CLDbW.png)
 
 ## Contact Me
 
