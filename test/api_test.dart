@@ -20,11 +20,4 @@ void main() {
     final response = await CallWaifus().getYandere();
     expect(response.isNotEmpty, true);
   });
-
-  test("callAPI getGelbooru", () async {
-    //variable
-    final response = await CallWaifus().getGelbooru();
-    expect(response.isNotEmpty, true);
-    expect(response[0].author, "unknown");
-  });
 }
