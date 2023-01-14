@@ -60,4 +60,4 @@ git clone https://github.com/Maxvyr/adopt_ta_waifu_android_flutter.git
 
 ## Contact Me
 
-contact : [pandamydev@gmail.com](mailto:pandamydev@gmail.com)
+contact : [contact@pandamy.xyz](mailto:contact@pandamy.xyz)
