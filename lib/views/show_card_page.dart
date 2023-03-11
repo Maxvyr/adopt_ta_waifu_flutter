@@ -6,7 +6,6 @@ import 'package:adopt_ta_waifu/controller/utils/custom_animation.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:adopt_ta_waifu/widget/my_cached_image_network.dart';
-import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -14,7 +13,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class ShowCardPage extends StatefulWidget {
   final String title;
   final List<Waifu> waifus;
-  final Function({Never returnValue}) backAppBar;
+  final Function() backAppBar;
   ShowCardPage(this.title, this.backAppBar, this.waifus);
 
   @override
@@ -39,12 +38,7 @@ class _ShowCardPageState extends State<ShowCardPage> {
     isDarkMode = isInDarkMode(context);
 
     return Scaffold(
-      appBar: MyAppBar(
-        title: widget.title,
-        context: context,
-        isDarkMode: isDarkMode,
-        onPressed: widget.backAppBar,
-      ),
+      appBar: AppBar(),
       body: _body(
         heightTotal,
         widthTotal,

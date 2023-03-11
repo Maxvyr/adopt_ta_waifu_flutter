@@ -12,11 +12,7 @@ class ComingSoon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: title,
-        context: context,
-        onPressed: backAppBar,
-      ),
+      appBar: AppBar(),
       body: Center(
         child: MyText(
           data: strComingSoon,

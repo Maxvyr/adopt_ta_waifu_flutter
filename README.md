@@ -10,7 +10,7 @@
 
 Show image waifu or husbando and if you like this image you can share it with your friend
 
-web version (under development) : [link](https://adopt-ta-waifu.web.app/#/)
+web version (Coming soon) : 
 
 mobile version (more stable) : clone the project and run the app
 

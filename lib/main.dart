@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: strAppName,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
+        theme: ThemeData.light(useMaterial3: true),
+        darkTheme: ThemeData.dark(useMaterial3: true),
         debugShowCheckedModeBanner: false,
         home: BeforeHomePage(),
         builder: EasyLoading.init(),
