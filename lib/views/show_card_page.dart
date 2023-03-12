@@ -121,7 +121,6 @@ class _ShowCardPageState extends State<ShowCardPage> {
       ++index;
       setState(() {});
     } else {
-      // TODO if all img show!
       index = 0;
     }
   }
