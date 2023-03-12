@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void popPage(BuildContext context, {bool result: false}) {
+void popPage(BuildContext context, {bool result = false}) {
   Navigator.pop(context, result);
 }
 
@@ -15,7 +15,7 @@ void goToNextPage(BuildContext context, Widget nextPage) {
 void animationPage(
   BuildContext context,
   Widget nextPage, {
-  int animationDuration: 500,
+  int animationDuration = 500,
 }) {
   Navigator.push(
     context,

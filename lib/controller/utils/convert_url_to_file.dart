@@ -12,9 +12,9 @@ Future<File> fileFromImageUrl(String imgUrl, String author) async {
   // recover app directory
   final docDirectory = await getApplicationDocumentsDirectory();
   // create file
-  final file = File(join(docDirectory.path, fileName));
-  // write body return for get in file
-  file.writeAsBytesSync(reponse.bodyBytes);
+  // and write body return for get in file
+  final file = File(join(docDirectory.path, fileName))
+    ..writeAsBytesSync(reponse.bodyBytes);
   // return file
   return file;
 }

@@ -1,6 +1,4 @@
 class Waifu {
-  String? author, file, previewImg, sample, source;
-
   Waifu({
     required this.author,
     required this.file,
@@ -8,30 +6,30 @@ class Waifu {
     required this.previewImg,
     required this.source,
   });
-
-  Waifu.fromKonachan(dynamic json) {
-    author = json["author"] as String?;
-    file = json["file_url"] as String?;
-    sample = json["sample_url"] as String?;
-    previewImg = json["preview_url"] as String?;
-    source = json["source"] as String?;
-  }
-
-  Waifu.fromYandere(dynamic json) {
-    author = json["author"] as String?;
-    file = json["file_url"] as String?;
-    sample = json["sample_url"] as String?;
-    previewImg = json["preview_url"] as String?;
-    source = json["source"] as String?;
-  }
-
-  Waifu.fromGelbooru(dynamic json) {
+  Waifu.fromGelbooru(Map<String, dynamic> json) {
     author = "unknown";
     file = json["file_url"] as String?;
     sample = json["sample_url"] as String?;
     previewImg = json["preview_url"] as String?;
     source = json["source"] as String?;
   }
+
+  Waifu.fromYandere(Map<String, dynamic> json) {
+    author = json["author"] as String?;
+    file = json["file_url"] as String?;
+    sample = json["sample_url"] as String?;
+    previewImg = json["preview_url"] as String?;
+    source = json["source"] as String?;
+  }
+
+  Waifu.fromKonachan(Map<String, dynamic> json) {
+    author = json["author"] as String?;
+    file = json["file_url"] as String?;
+    sample = json["sample_url"] as String?;
+    previewImg = json["preview_url"] as String?;
+    source = json["source"] as String?;
+  }
+  String? author, file, previewImg, sample, source;
 
   Map<String, dynamic> toJson() {
     return {

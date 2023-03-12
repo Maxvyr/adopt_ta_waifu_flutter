@@ -16,7 +16,7 @@ void main() {
 
   // after
   tearDownAll(() async {
-    flutterDriver.close();
+    await flutterDriver.close();
   });
 
   //test Integration

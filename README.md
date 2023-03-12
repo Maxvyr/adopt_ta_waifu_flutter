@@ -8,7 +8,7 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A72UVP8)
 
-Show image waifu or husbando and if you like this image you can share it with your friend
+Show image waifu or husbando and if you like this image you can download it and/or share it with your friend
 
 web version (Coming soon) : 
 

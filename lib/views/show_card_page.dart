@@ -1,4 +1,3 @@
-import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/icons.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/share_img.dart';
@@ -11,13 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ShowCardPage extends StatefulWidget {
-  final String title;
+  const ShowCardPage(this.waifus, {super.key});
   final List<Waifu> waifus;
-  final Function() backAppBar;
-  ShowCardPage(this.title, this.backAppBar, this.waifus);
 
   @override
-  _ShowCardPageState createState() => _ShowCardPageState();
+  State<ShowCardPage> createState() => _ShowCardPageState();
 }
 
 class _ShowCardPageState extends State<ShowCardPage> {
@@ -71,7 +68,6 @@ class _ShowCardPageState extends State<ShowCardPage> {
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       elevation: 15.0,
-      shadowColor: isDarkMode ? white : blueMain,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: InteractiveViewer(
@@ -107,17 +103,16 @@ class _ShowCardPageState extends State<ShowCardPage> {
       onPressed: callback,
       icon: isLike ? const Icon(likeIcon) : const Icon(dislikeIcon),
       iconSize: 70.0,
-      color: isDarkMode ? white : blueMain,
     );
   }
 
-  void _shareImg() async {
+  Future<void> _shareImg() async {
     final Waifu waifuLiked = widget.waifus[index];
     if (kIsWeb) {
-      openImgLink(waifuLiked);
+      await openImgLink(waifuLiked);
     } else {
       shareImg(waifuLiked);
-      _animationLoading();
+      await _animationLoading();
     }
   }
 
@@ -138,18 +133,18 @@ class _ShowCardPageState extends State<ShowCardPage> {
       ..loadingStyle = EasyLoadingStyle.dark
       ..indicatorSize = 45.0
       ..radius = 10.0
-      ..progressColor = white
-      ..backgroundColor = green
-      ..indicatorColor = lime
-      ..textColor = yellow
-      ..maskColor = blueMain.withOpacity(0.5)
+      ..progressColor = Colors.white
+      ..backgroundColor = Colors.green
+      ..indicatorColor = Colors.lime
+      ..textColor = Colors.yellow
+      ..maskColor = Colors.blue.withOpacity(0.5)
       ..userInteractions = true
       ..dismissOnTap = true
       ..customAnimation = CustomAnimation();
   }
 
-  void _animationLoading() async {
-    EasyLoading.show(
+  Future<void> _animationLoading() async {
+    await EasyLoading.show(
       status: strLoading,
       maskType: EasyLoadingMaskType.black,
     );

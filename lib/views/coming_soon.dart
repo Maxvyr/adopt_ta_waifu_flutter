@@ -1,23 +1,17 @@
-import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
-import 'package:adopt_ta_waifu/widget/my_materials.dart';
 import 'package:flutter/material.dart';
 
 class ComingSoon extends StatelessWidget {
-  final String title;
-  final Function({Never returnValue}) backAppBar;
-
-  ComingSoon(this.title, this.backAppBar);
+  const ComingSoon({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: MyText(
-          data: strComingSoon,
-          color: black,
-          fontSize: 35.0,
+        child: Text(
+          strComingSoon,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
     );

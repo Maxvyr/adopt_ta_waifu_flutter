@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BeforeHomePage extends StatefulWidget {
+  const BeforeHomePage({super.key});
+
   @override
-  _BeforeHomePageState createState() => _BeforeHomePageState();
+  State<BeforeHomePage> createState() => _BeforeHomePageState();
 }
 
 class _BeforeHomePageState extends State<BeforeHomePage> {
@@ -19,7 +21,7 @@ class _BeforeHomePageState extends State<BeforeHomePage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ConnectivityProvider>(builder: (context, model, child) {
-      return model.isOnline ? MyHomePage() : NoNetworkPage();
+      return model.isOnline ? const MyHomePage() : const NoNetworkPage();
     });
   }
 }

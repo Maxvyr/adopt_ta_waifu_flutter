@@ -1,21 +1,19 @@
-import 'package:adopt_ta_waifu/controller/constant/colors.dart';
+import 'package:adopt_ta_waifu/controller/constant/routes.dart';
 import 'package:adopt_ta_waifu/controller/constant/strings.dart';
 import 'package:adopt_ta_waifu/controller/utils/ui_utils.dart';
 import 'package:adopt_ta_waifu/models/waifus.dart';
 import 'package:adopt_ta_waifu/repository/call_api.dart';
-import 'package:adopt_ta_waifu/views/show_card_page.dart';
-import 'package:adopt_ta_waifu/views/coming_soon.dart';
-import 'package:animations/animations.dart';
-import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 
-import '../controller/constant/colors.dart';
 import '../controller/constant/images.dart';
 import '../../widget/my_materials.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -41,14 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return FutureBuilder(
       future: _waifus,
-      builder: (BuildContext context, AsyncSnapshot<List<Waifu>> snapshot) {
+      builder: (_, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
-            return LoadingPage();
+            return const LoadingPage();
           case ConnectionState.none:
-            return LoadingPage();
+            return const LoadingPage();
           case ConnectionState.waiting:
-            return LoadingPage();
+            return const LoadingPage();
           case ConnectionState.done:
             List<Waifu> waifus = [];
             if (snapshot.data == null) {
@@ -64,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
           default:
-            return LoadingPageError();
+            return const LoadingPageError();
         }
       },
     );
@@ -77,8 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
   ) {
     return Column(
       children: [
-        TopHomePage(),
-        spacingH(height: heightTotal * 0.1),
+        const TopHomePage(),
+        SizedBox(height: heightTotal * 0.1),
         ButtonsNext(waifus),
       ],
     );
@@ -86,13 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class TopHomePage extends StatelessWidget {
-  late final bool isDarkMode;
+  const TopHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final heightTotal = MediaQuery.of(context).size.height;
-    const radiusImg = 80.0;
-    isDarkMode = isInDarkMode(context);
+    const radiusImg = 60.0;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -103,18 +100,16 @@ class TopHomePage extends StatelessWidget {
               height: heightTotal * 0.5,
               fit: BoxFit.cover,
             ),
-            const SizedBox(
-              height: radiusImg,
-            )
+            const SizedBox(height: radiusImg)
           ],
         ),
-        ClipOval(
-          child: Container(
-            color: isDarkMode ? dark : white,
-            padding: const EdgeInsets.all(5.0),
-            child: const CircleAvatar(
+        const ClipOval(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: CircleAvatar(
               backgroundImage: AssetImage(logoApp),
               radius: radiusImg,
+              backgroundColor: Colors.white,
             ),
           ),
         ),
@@ -124,67 +119,59 @@ class TopHomePage extends StatelessWidget {
 }
 
 class ButtonsNext extends StatelessWidget {
+  const ButtonsNext(this.waifus, {super.key});
   final List<Waifu> waifus;
-  late final bool isDarkMode;
-
-  // ignore: prefer_const_constructors_in_immutables
-  ButtonsNext(this.waifus);
 
   @override
   Widget build(BuildContext context) {
-    isDarkMode = isInDarkMode(context);
-    final Color txtColor = isDarkMode ? blueMain : white;
-    final Color backgroundColor = isDarkMode ? white : blueMain;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        OpenContainer(
-          transitionDuration: const Duration(seconds: 1),
-          openColor: Colors.white,
-          closedShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25),
-          ),
-          closedColor: Colors.white,
-          closedBuilder: (_, openContainer) {
-            return MyButtonElevated(
-              txtBt: strWaifu,
-              txtColor: txtColor,
-              key: const Key(keyWaifuBt),
-              backgroundColor: backgroundColor,
-              callback: openContainer,
-              heightBt: kIsWeb ? 100 : 46,
-            );
-          },
-          openBuilder: (_, closeContainer) {
-            return ShowCardPage(
-              strWaifu,
-              closeContainer,
-              waifus,
-            );
-          },
+        FilledButton(
+          key: const Key(keyWaifuBt),
+          onPressed: () => context.push(Routes.showCard, extra: waifus),
+          child: const Text(strWaifu),
         ),
-        OpenContainer(
-          transitionDuration: const Duration(seconds: 1),
-          openColor: Colors.white,
-          closedShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25),
-          ),
-          closedColor: Colors.white,
-          closedBuilder: (_, openContainer) {
-            return MyButtonElevated(
-              txtBt: strHusbando,
-              txtColor: txtColor,
-              key: const Key(keyHusbandoBt),
-              backgroundColor: backgroundColor,
-              callback: openContainer,
-              heightBt: kIsWeb ? 100 : 46,
-            );
-          },
-          openBuilder: (_, closeContainer) {
-            return ComingSoon(strHusbando, closeContainer);
-          },
+        // OpenContainer(
+        //   openColor: Theme.of(context).colorScheme.background,
+        //   closedColor: Theme.of(context).colorScheme.background,
+        //   transitionDuration: const Duration(seconds: 1),
+        //   closedShape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(25),
+        //   ),
+        //   closedBuilder: (_, openContainer) => FilledButton(
+        //     key: const Key(keyWaifuBt),
+        //     onPressed: openContainer,
+        //     child: const Text(strWaifu),
+        //   ),
+        //   openBuilder: (_, closeContainer) => ShowCardPage(
+        //     strWaifu,
+        //     closeContainer,
+        //     waifus,
+        //   ),
+        //   tappable: false,
+        // ),
+        FilledButton(
+          key: const Key(keyHusbandoBt),
+          onPressed: () => context.push(Routes.comingSoon),
+          child: const Text(strHusbando),
         ),
+        // OpenContainer(
+        //   openColor: Theme.of(context).colorScheme.background,
+        //   closedColor: Theme.of(context).colorScheme.background,
+        //   transitionDuration: const Duration(seconds: 1),
+        //   closedShape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(25),
+        //   ),
+        //   closedBuilder: (_, openContainer) {
+        //     return FilledButton(
+        //       key: const Key(keyHusbandoBt),
+        //       onPressed: openContainer,
+        //       child: const Text(strHusbando),
+        //     );
+        //   },
+        //   openBuilder: (_, __) => const ComingSoon(strHusbando),
+        // ),
       ],
     );
   }

@@ -2,7 +2,7 @@
 
 import 'dart:io';
 
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,7 +11,7 @@ class ConnectivityProvider with ChangeNotifier {
   bool _isOnline = true;
   bool get isOnline => _isOnline;
 
-  void startMonitoring() async {
+  Future<void> startMonitoring() async {
     await initConnectivity();
     _connectivity.onConnectivityChanged.listen((result) async {
       if (result == ConnectivityResult.none) {
@@ -40,7 +40,7 @@ class ConnectivityProvider with ChangeNotifier {
         notifyListeners();
       }
     } on PlatformException catch (e) {
-      print("PlatformException -> $e");
+      debugPrint("PlatformException -> $e");
     }
   }
 

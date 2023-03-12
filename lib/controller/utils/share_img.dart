@@ -22,7 +22,7 @@ void shareText() {
   Share.share(strShareAppText);
 }
 
-void openImgLink(Waifu waifu) async {
+Future<void> openImgLink(Waifu waifu) async {
   final linkImg = waifu.file!;
   if (await canLaunch(linkImg)) {
     await launch(

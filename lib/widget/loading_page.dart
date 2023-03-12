@@ -1,7 +1,8 @@
-import 'package:adopt_ta_waifu/controller/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage extends StatelessWidget {
+  const LoadingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     //variable
@@ -9,17 +10,11 @@ class LoadingPage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          color: blueMain,
-          child: Center(
-            child: Container(
-              width: widthTotal * 0.3,
-              height: widthTotal * 0.3,
-              color: blueMain,
-              child: const CircularProgressIndicator(
-                color: white,
-              ),
-            ),
+        child: Center(
+          child: SizedBox(
+            width: widthTotal * 0.3,
+            height: widthTotal * 0.3,
+            child: const CircularProgressIndicator(),
           ),
         ),
       ),
@@ -28,6 +23,8 @@ class LoadingPage extends StatelessWidget {
 }
 
 class LoadingPageError extends StatelessWidget {
+  const LoadingPageError({super.key});
+
   @override
   Widget build(BuildContext context) {
     //variable
@@ -35,17 +32,11 @@ class LoadingPageError extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          color: blueMain,
-          child: Center(
-            child: Container(
-              width: widthTotal * 0.3,
-              height: widthTotal * 0.3,
-              color: blueMain,
-              child: const CircularProgressIndicator(
-                color: red,
-              ),
-            ),
+        child: Center(
+          child: SizedBox(
+            width: widthTotal * 0.3,
+            height: widthTotal * 0.3,
+            child: const CircularProgressIndicator(),
           ),
         ),
       ),
